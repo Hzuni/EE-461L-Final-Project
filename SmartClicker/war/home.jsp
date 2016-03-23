@@ -21,6 +21,7 @@
   	UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
   	
+  	
     String userName = request.getParameter("userName");
     if (userName == null) {
     	userName = "default";
