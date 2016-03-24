@@ -1,5 +1,7 @@
 package smartclicker;
 
+import java.util.ArrayList;
+
 public class SmartUser {
 
 	String userId;
@@ -15,6 +17,7 @@ public class SmartUser {
 	public String getGoogleId() {
 		return userId;
 	}
+	
 
 
 
