@@ -11,6 +11,8 @@
 <%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<%@ page import="smartclicker.SmartUser" %>
+
 <html>
   <head>
   	<link rel="stylesheet" href="resources/css/index.css">
@@ -59,6 +61,20 @@
   
   <%
   if (user != null) {
+	/*
+		Need to ensure that our keys are correct
+		Issue is managing the information in Datastore, need appropriate keys to find existing users
+		possible solution: create an arraylist of userKeys and store that in the datastore
+	*/
+	SmartUser smartUser= new SmartUser(userKey);
+	try {
+		datastore.get(smartUser.getGoogleId());
+		//Existing User
+	}
+	catch(com.google.appengine.api.datastore.EntityNotFoundException e) {
+		//New User
+	}
+	
 	pageContext.setAttribute("user", user);
 	%>
 	<body>
