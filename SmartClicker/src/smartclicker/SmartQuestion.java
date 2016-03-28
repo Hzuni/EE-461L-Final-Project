@@ -2,13 +2,21 @@ package smartclicker;
 
 import java.util.ArrayList;
 
-public class SmartQuestions {
+public class SmartQuestion {
 
-
-	String questionContents; 
-	String title;
+	private String questionContents;
+	private String title;
+	private ArrayList<SmartAnswer> answers;
+	private int correctNumber;
 	
-	public SmartQuestions(String questionContents, String title,
+	private static final int MIN_ANSWER_NUMBER = 5;
+
+	
+	public SmartQuestion() {
+
+	}
+
+	public SmartQuestion(String questionContents, String title,
 			ArrayList<SmartAnswer> answers, int correctNumber) {
 		super();
 		this.questionContents = questionContents;
@@ -17,7 +25,6 @@ public class SmartQuestions {
 		this.correctNumber = correctNumber;
 	}
 
-	ArrayList<SmartAnswer> answers; 
 	public ArrayList<SmartAnswer> getAnswers() {
 		return answers;
 	}
@@ -26,13 +33,12 @@ public class SmartQuestions {
 		this.answers = answers;
 	}
 
-	int correctNumber; 
 	
-	public SmartQuestions(){
-		
-	}
-
-	public boolean isAnswer(SmartAnswer A){
+	public boolean isAnswer(SmartAnswer A) {
 		return false;
 	}
+	public static int getMinimumAnswers(){
+		return MIN_ANSWER_NUMBER;
+	}
+
 }
