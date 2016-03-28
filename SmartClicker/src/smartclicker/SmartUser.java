@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class SmartUser {
 
-	String userId;
+	private String userId;
 	
-	ArrayList<String> createdQuizIds; 
-	ArrayList<String> courseIds;
+	private ArrayList<String> createdQuizIds; 
+	private ArrayList<String> courseIds;
 	
 	SmartUser(String userId){
 		this.userId=userId;
@@ -18,8 +18,5 @@ public class SmartUser {
 		return userId;
 	}
 	
-
-
-
 
 }
