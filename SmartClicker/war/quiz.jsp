@@ -59,6 +59,18 @@
 			  	<h1>Welcome to Quiz Creation!</h1>
 			  	<h2>To get begin creating A quiz, fill out the Blanks.</h2>
 			</div>
+			
+			<div class="w3-card-4" style="width:100%; padding-bottom: 0px;">
+				<header class="w3-container w3-orange">
+					<h6>Your Quiz:</h6>
+				</header>
+		    	<form action="/sign" method="post" style="padding: 20px;">
+		    		<div><textarea class="title" name="title" rows="1" cols="60" placeholder="Insert title here"></textarea></div>
+		      		<div><textarea name="content" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
+		      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Create" /></div>
+		      		<input type="hidden" name="userName" value="${fn:escapeXml(userName)}"/>
+		   	 	</form>
+		 	</div>
 		</div>   
   	</body>
 <html>
