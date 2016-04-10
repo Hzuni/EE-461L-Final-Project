@@ -35,7 +35,7 @@
     %>
     
   <ul class="border">
-		<li class="topbar" style="font-weight:bold">Smart Clicker</li>
+		<li class="topbar" style="font-weight:bold"><a href="home.jsp">Smart Clicker</a></li>
 		
 		<ul style="float:right; list-style-type:none;">
 			
@@ -66,14 +66,15 @@
 		Issue is managing the information in Datastore, need appropriate keys to find existing users
 		possible solution: create an arraylist of userKeys and store that in the datastore
 	*/
-	SmartUser smartUser= new SmartUser(userKey);
+	/*String id = "";
+	SmartUser smartUser= new SmartUser(id);
 	try {
 		datastore.get(smartUser.getGoogleId());
 		//Existing User
 	}
 	catch(com.google.appengine.api.datastore.EntityNotFoundException e) {
 		//New User
-	}
+	}*/
 	
 	pageContext.setAttribute("user", user);
 	%>
@@ -89,8 +90,12 @@
 		            	<!-- This is where the created classes will be populated -->
 		            
 		            	<!-- This is where the created classes will be populated -->
-		            	<form style="padding: 20px;">
+		            	<form action = /teacher method = "post" style="padding: 20px;">
 				      		<div><input style="margin-top: 10px; margin-left: 900px; width: 130px;" type="submit" class="original" value="Create Class" /></div>
+				   	 	</form>
+				   	 	
+				   	 	<form action = /teacher method = "get" style="padding: 20px;">
+				      		<div><input style="margin-top: 10px; margin-left: 900px; width: 130px;" type="submit" class="original" value="Create Quiz" /></div>
 				   	 	</form>
 				   	 	
 		       		</div>
@@ -103,7 +108,7 @@
 		            	<!-- This is where the joined classes will be populated -->
 		            
 		            	<!-- This is where the joined classes will be populated -->
-		            	<form style="padding: 20px;">
+		            	<form action = /student method = "get" style="padding: 20px;">
 				      		<div><input style="margin-top: 10px; margin-left: 900px; width: 130px;" type="submit" class="original" value="Join Class" /></div>
 				   	 	</form>
 				   	 	

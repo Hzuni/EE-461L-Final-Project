@@ -1,6 +1,6 @@
 package smartclicker;
 
-public interface SmartUserState  {
+public interface SmartUserState{
 	
 
 }
