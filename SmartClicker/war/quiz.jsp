@@ -52,21 +52,29 @@
 			</li>
   		</ul>
   </ul>
+  <% /*STORE QUIZZES LIKE POSTS WERE STORED IN THE BLOG*/ %>
   
   <body>
 		<div id="page-wrap">
 			<div>
-			  	<h1>Welcome to Quiz Creation!</h1>
-			  	<h2>To get begin creating A quiz, fill out the Blanks.</h2>
+			  	<h1>Quiz Creation!</h1>
+			  	<h2>To create a quiz, fill out the Blanks.</h2>
 			</div>
 			
 			<div class="w3-card-4" style="width:100%; padding-bottom: 0px;">
 				<header class="w3-container w3-orange">
 					<h6>Your Quiz:</h6>
 				</header>
-		    	<form action="/sign" method="post" style="padding: 20px;">
+		    	<form action="/teacher" method="get" style="padding: 20px;">
 		    		<div><textarea class="title" name="title" rows="1" cols="60" placeholder="Insert title here"></textarea></div>
-		      		<div><textarea name="content" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
+		      		<div><textarea name="question" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
+		      		<h4>Set answer choices:</h4>
+		      		<div><textarea class="title" name="answer1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
+		      		<div><textarea class="title" name="answer2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
+		      		<div><textarea class="title" name="answer3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
+		      		<div><textarea class="title" name="answer4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
+		      		<h4>Enter the Correct Answer Choice Number:</h4><h6>ex) 1</h6>
+		      		<div><textarea class="title" name="correct" rows="1" cols="20" placeholder=" "></textarea></div>
 		      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Create" /></div>
 		      		<input type="hidden" name="userName" value="${fn:escapeXml(userName)}"/>
 		   	 	</form>

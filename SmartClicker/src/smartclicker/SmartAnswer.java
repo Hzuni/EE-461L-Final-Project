@@ -2,7 +2,7 @@ package smartclicker;
 
 public class SmartAnswer {
 	
-	
+	/**NOT CURRENTLY USING THIS CLASS. SEEMS UNNECESSARY NOW IN IMPLEMENTATION. USED JUST SIMLE STRINGS IN QUESTION CLASS**/
 	private String answerChoiceContents; 
 	
 	public SmartAnswer(String answerChoice) {
