@@ -26,20 +26,25 @@ public class SmartClickerServlet extends HttpProxyServlet {
     public static void register(){
     	ObjectifyService.register(SmartUser.class);	
     }
-	public static void updatingObjectify(String s){
-		System.out.println(s.length());	
-		System.out.println(s);
-		
-		
-		SmartUser newUser = new SmartUser(s);
+	public static SmartUser updatingObjectify(String s){		
 		if(!registered){
 			register();
 		}
-		
-		ofy().save().entity(newUser).now();			
 		Ref<SmartUser> result = ofy().load().type(SmartUser.class).filter("userId",s).first();
-		SmartUser retrieved = result.get();
-		System.out.print(retrieved.getGoogleId());
+		SmartUser retrieved = result.get();		
+		if(retrieved != null)
+		{
+			System.out.print("We have a returning user");
+			return retrieved;
+		}
+		else
+		{
+			SmartUser newUser = new SmartUser(s);
+			ofy().save().entity(newUser).now();
+			System.out.print("New User Just added to the Objectify");
+			return newUser;
+		}
+		
 	}
 	
 }

@@ -24,9 +24,11 @@
   	<%
   	UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
-  	if(user != null){
-    	SmartClickerServlet.updatingObjectify(user.getUserId());
+  	
+    if(user != null){
+    	SmartClickerServlet.userManagment(user.getUserId());
   	}
+    
     String userName = request.getParameter("userName");
     if (userName == null) {
     	userName = "default";
