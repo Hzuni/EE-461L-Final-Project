@@ -11,8 +11,9 @@
 <%@ page import="com.google.appengine.api.datastore.Key" %>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <%@ page import="smartclicker.SmartUser" %>
+<%@ page import="smartclicker.SmartClickerServlet" %>
+
 
 <html>
   <head>
@@ -23,8 +24,9 @@
   	<%
   	UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
-  	
-  	
+  	if(user != null){
+    	SmartClickerServlet.updatingObjectify(user.getUserId());
+  	}
     String userName = request.getParameter("userName");
     if (userName == null) {
     	userName = "default";
