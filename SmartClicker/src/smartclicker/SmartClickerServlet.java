@@ -26,7 +26,7 @@ public class SmartClickerServlet extends HttpProxyServlet {
     public static void register(){
     	ObjectifyService.register(SmartUser.class);	
     }
-	public static SmartUser updatingObjectify(String s){		
+	public static SmartUser userManagment(String s){		
 		if(!registered){
 			register();
 		}
