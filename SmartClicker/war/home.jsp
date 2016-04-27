@@ -24,13 +24,15 @@
   	<%
   	UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
-  	
+    
+  	/*The Smart User Who is currently logged in will be stored in our variable named loggedInUser*/
     if(user != null){
-    	SmartClickerServlet.userManagment(user.getUserId());
+    	SmartUser loggedInUser = SmartClickerServlet.userManagment(user.getUserId());
   	}
     
     String userName = request.getParameter("userName");
-    if (userName == null) {
+    if (userName == null) 
+    {
     	userName = "default";
     }
     pageContext.setAttribute("userName", userName);
@@ -66,20 +68,6 @@
   
   <%
   if (user != null) {
-	/*
-		Need to ensure that our keys are correct
-		Issue is managing the information in Datastore, need appropriate keys to find existing users
-		possible solution: create an arraylist of userKeys and store that in the datastore
-	*/
-	/*String id = "";
-	SmartUser smartUser= new SmartUser(id);
-	try {
-		datastore.get(smartUser.getGoogleId());
-		//Existing User
-	}
-	catch(com.google.appengine.api.datastore.EntityNotFoundException e) {
-		//New User
-	}*/
 	
 	pageContext.setAttribute("user", user);
 	%>
@@ -100,7 +88,7 @@
 				   	 	</form>
 				   	 	
 				   	 	<%
-
+						
 				   	    Query query = new Query("Question", userKey).addSort("date", Query.SortDirection.DESCENDING);
 				   	    List<Entity> questions = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(200));
 				   	    

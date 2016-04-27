@@ -48,7 +48,7 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 		String answer2 = req.getParameter("answer2");
 		String answer3 = req.getParameter("answer3");
 		String answer4 = req.getParameter("answer4");
-		
+		String correctAnswer =req.getParameter("correct");
 		if(title != null)
 			question.setTitle(title);
 		if(question != null)
@@ -61,9 +61,9 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 			question.addAnswers(answer3);
 		if(answer4 != null)
 			question.addAnswers(answer4);
-		
-		/*Need to figure out how to get an integer*/
-		//question.setCorrect(req.getParameter("correct"));
+		if(correctAnswer != null){
+			question.setCorrect(Integer.parseInt(correctAnswer));
+		}
 		if(title != null && question != null) {
 			Key key = KeyFactory.createKey("Title", title);
 			Entity Question = new Entity("Question", key);
