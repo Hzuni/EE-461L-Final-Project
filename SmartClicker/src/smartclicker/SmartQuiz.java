@@ -5,10 +5,15 @@ import java.util.ArrayList;
 public class SmartQuiz {
 	
 	private static final int MIN_QUESTION_NUMBER = 5;
-	/*Currently all questions must have 5 answers*/
-	
+	private String title;
 	private ArrayList<SmartQuestion> questions;
 	private String quizID;
+
+	public SmartQuiz(){
+		
+	}
+	
+	
 	
 	public String getQuizID() {
 		return quizID;
@@ -27,6 +32,12 @@ public class SmartQuiz {
 		questions.set(q_num, q);
 	}
 	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	
 	
 }

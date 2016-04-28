@@ -6,33 +6,23 @@ public class SmartQuestion {
 
 	private String question;
 	private String title;
-	private ArrayList<String> answers;
-	private int correctNumber;
+	private ArrayList<String> answerChoices;
+	private int correctAnswerChoice;
 	
 	private static final int MIN_ANSWER_NUMBER = 4;
 
 	
 	public SmartQuestion() {
-		answers = new ArrayList<String>();
+		answerChoices = new ArrayList<String>();
 	}
 
-	public SmartQuestion(String question, String title,
+	public SmartQuestion(String question,
 			ArrayList<String> answers, int correctNumber) {
 		super();
 		this.question = question;
-		this.title = title;
-		this.answers = answers;
-		this.correctNumber = correctNumber;
+		this.answerChoices = answers;
+		this.correctAnswerChoice = correctNumber;
 	}
-
-	
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
 	
 	public String getQuestion() {
 		return question;
@@ -41,29 +31,18 @@ public class SmartQuestion {
 		this.question = question;
 	}
 	
-	
 	public ArrayList<String> getAnswers() {
-		return answers;
+		return answerChoices;
 	}
 	public void setAnswers(ArrayList<String> answers) {
-		this.answers = answers;
+		this.answerChoices = answers;
 	}
-	public void addAnswers(String answer) {
-		answers.add(answer);
-	}
-	
-	
 	public int getCorrect() {
-		return correctNumber;
+		return correctAnswerChoice;
 	}
 	public void setCorrect(int correct) {
-		this.correctNumber = correct;
-	}
-
-	
-	public boolean isAnswer(SmartAnswer A) {
-		return false;
-	}
+		this.correctAnswerChoice = correct;
+	}	
 	public static int getMinimumAnswers(){
 		return MIN_ANSWER_NUMBER;
 	}

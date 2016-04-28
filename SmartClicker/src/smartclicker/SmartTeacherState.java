@@ -18,7 +18,6 @@ import com.google.appengine.api.users.UserServiceFactory;
 
 public class SmartTeacherState extends HttpServlet implements SmartUserState{
 
-	public static DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 	
 	public String makeClass(){
 		return null;
@@ -40,9 +39,29 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 	/*Used for quiz creation*/
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		SmartQuestion question = new SmartQuestion();
 		
-		String title = req.getParameter("title");
+		SmartQuiz newQuiz = new SmartQuiz();		
+		newQuiz.setTitle(req.getParameter("title"));
+		ArrayList<SmartQuestion> new_quiz_questions = new ArrayList<SmartQuestion>();		
+		
+		/*Build questions and store them in new_quiz_questions*/
+		for(int i = 0; i <5; i++)
+		{
+			String question_text = req.getParameter("quetion" + Integer.toString(i));			
+			ArrayList<String> answerChoices = new ArrayList<String>();		
+			int correct_answer_choice;
+			for(int j = 0; j< 4; j++)
+			{
+				String parsedInAnswerChoice = req.getParameter("answer" + Integer.toString(i) + "_" + Integer.toString(j));
+				answerChoices.add(parsedInAnswerChoice);
+			}
+			correct_answer_choice =  Integer.parseInt(req.getParameter("correct" + Integer.toString(i)));
+			SmartQuestion new_quiz_question = new SmartQuestion(question_text,answerChoices,correct_answer_choice);			
+		}
+		
+		
+		
+		/*String title = req.getParameter("title");
 		String questionText = req.getParameter("question");
 		String answer1 = req.getParameter("answer1");
 		String answer2 = req.getParameter("answer2");
@@ -70,10 +89,13 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 			Question.setProperty("question_title", title);
 			Question.setProperty("question_content", questionText);
 			datastore.put(Question);
-		}
+		}*/
 		
 		
 		resp.sendRedirect("/home.jsp");
 		
 	}
+	
+	
+	
 }
