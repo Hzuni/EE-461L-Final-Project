@@ -45,12 +45,12 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 		ArrayList<SmartQuestion> new_quiz_questions = new ArrayList<SmartQuestion>();		
 		
 		/*Build questions and store them in new_quiz_questions*/
-		for(int i = 0; i <5; i++)
+		for(int i = 1; i <=5; i++)
 		{
 			String question_text = req.getParameter("quetion" + Integer.toString(i));			
 			ArrayList<String> answerChoices = new ArrayList<String>();		
 			int correct_answer_choice;
-			for(int j = 0; j< 4; j++)
+			for(int j = 1; j<= 4; j++)
 			{
 				String parsedInAnswerChoice = req.getParameter("answer" + Integer.toString(i) + "_" + Integer.toString(j));
 				answerChoices.add(parsedInAnswerChoice);

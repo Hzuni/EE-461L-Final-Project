@@ -70,53 +70,53 @@
 		      		
 		      		
 		      		<!-- Question set to follow -->
-		    		<h4><b>Question 1</b></h4>
-		    		<div><textarea name="question" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
+		    		<h4><b>Question 1</b></h4>		    		
+		    		<div><textarea name="question1" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		      		<div><textarea class="title" name="answer1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
-		      		<div><textarea class="title" name="answer2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
-		      		<div><textarea class="title" name="answer3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
-		      		<div><textarea class="title" name="answer4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
+		      		<div><textarea class="title" name="answer1_1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
+		      		<div><textarea class="title" name="answer1_2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
+		      		<div><textarea class="title" name="answer1_3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
+		      		<div><textarea class="title" name="answer1_4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
 		      		<h4>Enter the Correct Answer Choice Number:</h4><h6>ex) 1</h6>
 		      		<div><textarea class="title" name="correct" rows="1" cols="20" placeholder=" "></textarea></div>
 		      		
 		      		<h4><b>Question 2</b></h4>
-		      		<div><textarea name="question" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
+		      		<div><textarea name="question2" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		      		<div><textarea class="title" name="answer1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
-		      		<div><textarea class="title" name="answer2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
-		      		<div><textarea class="title" name="answer3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
-		      		<div><textarea class="title" name="answer4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
+		      		<div><textarea class="title" name="answer2_1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
+		      		<div><textarea class="title" name="answer2_1" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
+		      		<div><textarea class="title" name="answer2_1" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
+		      		<div><textarea class="title" name="answer2_1" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
 		      		<h4>Enter the Correct Answer Choice Number:</h4><h6>ex) 1</h6>
 		      		<div><textarea class="title" name="correct" rows="1" cols="20" placeholder=" "></textarea></div>
 		      		
 		      		<h4><b>Question 3</b></h4>
-		      		<div><textarea name="question" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
+		      		<div><textarea name="question3" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		      		<div><textarea class="title" name="answer1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
-		      		<div><textarea class="title" name="answer2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
-		      		<div><textarea class="title" name="answer3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
-		      		<div><textarea class="title" name="answer4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
+		      		<div><textarea class="title" name="answer3_1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
+		      		<div><textarea class="title" name="answer3_2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
+		      		<div><textarea class="title" name="answer3_3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
+		      		<div><textarea class="title" name="answer3_4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
 		      		<h4>Enter the Correct Answer Choice Number:</h4><h6>ex) 1</h6>
 		      		<div><textarea class="title" name="correct" rows="1" cols="20" placeholder=" "></textarea></div>
 		      		
 		      		<h4><b>Question 4</b></h4>
-		      		<div><textarea name="question" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
+		      		<div><textarea name="question4" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		      		<div><textarea class="title" name="answer1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
-		      		<div><textarea class="title" name="answer2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
-		      		<div><textarea class="title" name="answer3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
-		      		<div><textarea class="title" name="answer4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
+		      		<div><textarea class="title" name="answer4_1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
+		      		<div><textarea class="title" name="answer4_2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
+		      		<div><textarea class="title" name="answer4_3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
+		      		<div><textarea class="title" name="answer4_4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
 		      		<h4>Enter the Correct Answer Choice Number:</h4><h6>ex) 1</h6>
 		      		<div><textarea class="title" name="correct" rows="1" cols="20" placeholder=" "></textarea></div>
 		      		
 		      		<h4>	<b>Question 5</b> </h4>
-		      		<div><textarea name="question" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
+		      		<div><textarea name="question5" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		      		<div><textarea class="title" name="answer1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
-		      		<div><textarea class="title" name="answer2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
-		      		<div><textarea class="title" name="answer3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
-		      		<div><textarea class="title" name="answer4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
+		      		<div><textarea class="title" name="answer5_1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
+		      		<div><textarea class="title" name="answer5_2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
+		      		<div><textarea class="title" name="answer5_3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
+		      		<div><textarea class="title" name="answer5_4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
 		      		<h4>Enter the Correct Answer Choice Number:</h4><h6>ex) 1</h6>
 		      		<div><textarea class="title" name="correct" rows="1" cols="20" placeholder=" "></textarea></div>
 		      		<!--End of the Question Set! -->
