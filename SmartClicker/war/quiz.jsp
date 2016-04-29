@@ -11,8 +11,9 @@
 <%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="smartclicker.SmartClickerServlet" %>
-
 <%@ page import="smartclicker.SmartUser" %>
+<%@ page import="smartclicker.SmartClickerObjectify" %>
+
 
 <html>
   <head>
@@ -31,7 +32,9 @@
     User user = userService.getCurrentUser();
     
     if(user != null){
-    	loggedInUser = SmartClickerServlet.userManagment(user.getUserId());
+    	SmartClickerObjectify objectify =	SmartClickerObjectify.getInstance(); 
+    	loggedInUser = objectify.retrieveUser(user.getUserId());		
+    	/*SmartClickerServlet.userManagment(user.getUserId());*/
   	}
     %>
    <ul class="border">
@@ -79,14 +82,13 @@
 		    		<h4><b>Question 1</b></h4>		    		
 		    		<div><textarea name="question1" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		      		<div><textarea class="title" name="answer1_1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div>
-		      		<div><textarea class="title" name="answer1_2" rows="1" cols="60" placeholder="Input Choice 2"></textarea></div>
-		      		<div><textarea class="title" name="answer1_3" rows="1" cols="60" placeholder="Input Choice 3"></textarea></div>
-		      		<div><textarea class="title" name="answer1_4" rows="1" cols="60" placeholder="Input Choice 4"></textarea></div>
-		      		<h4>Enter the Correct Answer Choice Number:</h4><h6>ex) 1</h6>
-		      		<div><textarea class="title" name="correct1" rows="1" cols="20" placeholder="1"></textarea></div>
-		      		
-<!-- 		      		<h4><b>Question 2</b></h4> -->
+		   			<div><input type="radio" name="correct1" onclick="check(this.value)" value="1" style="float:left" checked/><textarea class="title" name="answer1_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct1" onclick="check(this.value)" value="2" style="float:left"/><textarea class="title" name="answer1_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct1" onclick="check(this.value)" value="3" style="float:left"/><textarea class="title" name="answer1_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct1" onclick="check(this.value)" value="4" style="float:left"/><textarea class="title" name="answer1_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
+		   			
+		   			
+		   			<!-- 		      		<h4><b>Question 2</b></h4> -->
 <!-- 		      		<div><textarea name="question2" rows="3" cols="60" placeholder="Type your question here"></textarea></div> -->
 <!-- 		      		<h4>Set answer choices:</h4> -->
 <!-- 		      		<div><textarea class="title" name="answer2_1" rows="1" cols="60" placeholder="Input Choice 1"></textarea></div> -->

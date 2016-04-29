@@ -30,7 +30,7 @@
     if(user != null){
     	/*SmartUser loggedInUser = SmartClickerServlet.userManagment(user.getUserId());*/
     	SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
-    	objectify.userManagment(user.getUserId());
+    	SmartUser loggedInUser = objectify.retrieveUser(user.getUserId());
   	}
     
     String userName = request.getParameter("userName");

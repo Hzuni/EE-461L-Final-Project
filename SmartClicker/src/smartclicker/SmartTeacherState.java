@@ -89,14 +89,13 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 		if(!new_quiz_questions.isEmpty()){
 			newQuiz.setQuestions(new_quiz_questions);
 			SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
-			objectify.newQuizManagment(newQuiz)
+			objectify.newQuizManagment(newQuiz);
 			
 		}
 		resp.sendRedirect("/home.jsp");
 		
 	}
-	static final String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	
+	static final String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";	
 	public String randomString(int len) {
 		StringBuilder idGen = new StringBuilder(len);
 		

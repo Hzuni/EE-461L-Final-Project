@@ -13,7 +13,7 @@ public class SmartClickerObjectify {
     {
     	/*Private constructor makes making multiple instances impossible.
     	 This is done to keep all Objectify loads and stores in one class 
-    	 and to stay true to the Singleton Design Patern*/
+    	 and to stay true to the Singleton Design Pattern*/
     
     }
 	public static SmartClickerObjectify getInstance()
@@ -27,7 +27,7 @@ public class SmartClickerObjectify {
     	ObjectifyService.register(SmartQuiz.class);
     }
 
-	public SmartUser retrieveUsers(String googleId)
+	public SmartUser retrieveUser(String googleId)
 	{		
 		/*By the google generated Id determines weather user has used our service before 
 		 and will retrieve their information if they have*/
@@ -40,6 +40,8 @@ public class SmartClickerObjectify {
 		if(retrieved != null)
 		{
 			System.out.println("We have a returning user");
+			//TODO need to add code to retrive user quizes via google Id and display this all on home.jsp
+			
 			return retrieved;
 		}
 		else
