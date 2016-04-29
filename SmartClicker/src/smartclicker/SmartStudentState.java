@@ -14,7 +14,7 @@ public class SmartStudentState extends HttpServlet implements SmartUserState{
 		
 	}
 	
-	/*Used for quiz creation*/
+	/*Used for taking Quizes*/
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		

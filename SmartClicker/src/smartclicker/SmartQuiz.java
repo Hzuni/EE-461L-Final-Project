@@ -1,19 +1,21 @@
 package smartclicker;
-
 import java.util.ArrayList;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
 
+@Entity
 public class SmartQuiz {
 	
+	@Id private String quizID;
 	private String userId;
 	private static final int MIN_QUESTION_NUMBER = 5;
 	private String title;
 	private ArrayList<SmartQuestion> questions;
-	private String quizID;
+	
 
 	public SmartQuiz(){
 		
 	}
-	
 	
 	public void setQuizID(String sID) {
 		quizID = sID;

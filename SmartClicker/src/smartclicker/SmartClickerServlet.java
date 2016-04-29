@@ -14,37 +14,14 @@ import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.Result;
 
 @SuppressWarnings("serial")
-public class SmartClickerServlet extends HttpProxyServlet {
-	static boolean registered =false;	
-	
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+public class SmartClickerServlet extends HttpProxyServlet {    
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException
+    {
     	ObjectifyService.register(SmartUser.class);
     	resp.setContentType("text/plain");
 		resp.getWriter().println("Hello, world");
 	}
-    public static void register(){
-    	ObjectifyService.register(SmartUser.class);	
-    }
-	public static SmartUser userManagment(String s){		
-		if(!registered){
-			register();
-		}
-		Ref<SmartUser> result = ofy().load().type(SmartUser.class).filter("userId",s).first();
-		SmartUser retrieved = result.get();		
-		if(retrieved != null)
-		{
-			System.out.print("We have a returning user");
-			return retrieved;
-		}
-		else
-		{
-			SmartUser newUser = new SmartUser(s);
-			ofy().save().entity(newUser).now();
-			System.out.print("New User Just added to the Objectify");
-			return newUser;
-		}
-		
-	}
+    
+
 	
 }

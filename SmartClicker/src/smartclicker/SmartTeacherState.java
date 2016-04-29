@@ -1,5 +1,4 @@
 package smartclicker;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,6 +16,7 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 import java.security.SecureRandom;
+
 
 public class SmartTeacherState extends HttpServlet implements SmartUserState{
 
@@ -88,7 +88,9 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 		}
 		if(!new_quiz_questions.isEmpty()){
 			newQuiz.setQuestions(new_quiz_questions);
-			//Objectify Store Here
+			SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
+			objectify.newQuizManagment(newQuiz)
+			
 		}
 		resp.sendRedirect("/home.jsp");
 		

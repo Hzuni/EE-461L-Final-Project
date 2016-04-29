@@ -13,6 +13,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="smartclicker.SmartUser" %>
 <%@ page import="smartclicker.SmartClickerServlet" %>
+<%@ page import="smartclicker.SmartClickerObjectify" %>
 
 
 <html>
@@ -27,7 +28,9 @@
     
   	/*The Smart User Who is currently logged in will be stored in our variable named loggedInUser*/
     if(user != null){
-    	SmartUser loggedInUser = SmartClickerServlet.userManagment(user.getUserId());
+    	/*SmartUser loggedInUser = SmartClickerServlet.userManagment(user.getUserId());*/
+    	SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
+    	objectify.userManagment(user.getUserId());
   	}
     
     String userName = request.getParameter("userName");
@@ -36,9 +39,6 @@
     	userName = "default";
     }
     pageContext.setAttribute("userName", userName);
-    
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    Key userKey = KeyFactory.createKey("User", userName);
     %>
     
   <ul class="border">
