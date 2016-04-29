@@ -83,40 +83,11 @@
 		            	<!-- This is where the created classes will be populated -->
 		            
 		            	<!-- This is where the created classes will be populated -->
-		            	<form action = /teacher method = "post" style="padding: 20px;">
-				      		<div><input style="margin-top: 10px; margin-left: 900px; width: 130px;" type="submit" class="original" value="Create Class" /></div>
-				   	 	</form>
+<!-- 		            	<form action = /teacher method = "post" style="padding: 20px;"> -->
+<!-- 				      		<div><input style="margin-top: 10px; margin-left: 900px; width: 130px;" type="submit" class="original" value="Create Class" /></div> -->
+<!-- 				   	 	</form> -->
 				   	 	
-				   	 	<%
-						
-				   	    Query query = new Query("Question", userKey).addSort("date", Query.SortDirection.DESCENDING);
-				   	    List<Entity> questions = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(200));
-				   	    
-				        for (Entity question : questions) {
-				        	int check = 1;			//REPLACE WITH AN ACTUAL CHECK TO MAKE SURE THE TEACHER CREATED THIS QUIZ
-				        	if(check == 1){
-				                pageContext.setAttribute("question_title", question.getProperty("title"));
-					            pageContext.setAttribute("question_content", question.getProperty("content"));
-				                %>
-				                <div style="padding-bottom: 20px;">
-				                <div class="w3-card-4" style="width:100%; padding-bottom: 0px;">
-					                <header class="w3-container w3-orange">
-									  <h3>${fn:escapeXml(post_title)}</h3>
-									</header>
-					                <div class="w3-container">
-						                <p><b>${fn:escapeXml(post_user.nickname)}</b> wrote:</p>
-							            <blockquote>${fn:escapeXml(post_content)}</blockquote>
-							            <p style="color:grey;">On: ${fn:escapeXml(post_date)}</p>
-						            </div>
-					            </div>
-					            </div>
-					            <%
-					            
-				        	}
-				        }
-				   	 	%>
-				   	 	
-				   	 	<form action = /teacher method = "get" style="padding: 20px;">
+				   	 	<form action = /teacher method = "post" style="padding: 20px;">
 				      		<div><input style="margin-top: 10px; margin-left: 900px; width: 130px;" type="submit" class="original" value="Create Quiz" /></div>
 				   	 	</form>
 				   	 	
