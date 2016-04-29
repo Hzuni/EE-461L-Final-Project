@@ -16,6 +16,9 @@ import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
+import java.security.SecureRandom;
+import java.math.BigInteger;
+
 public class SmartTeacherState extends HttpServlet implements SmartUserState{
 
 	
