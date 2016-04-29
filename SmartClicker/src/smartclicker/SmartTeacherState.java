@@ -17,7 +17,6 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 import java.security.SecureRandom;
-import java.math.BigInteger;
 
 public class SmartTeacherState extends HttpServlet implements SmartUserState{
 
@@ -43,70 +42,66 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		
-		String userId = req.getParameter("userId");
+		String userID = req.getParameter("userId");
 		
-		SmartQuiz newQuiz = new SmartQuiz();		
-		newQuiz.setTitle(req.getParameter("title"));
-		newQuiz.setUserID(userId);
+		SmartQuiz newQuiz = new SmartQuiz();	
+		
+		String quizID = randomString(4);
+		System.out.println("Quiz ID: " + quizID);
+		
+		//newQuiz.setQuizID(quizID);
+		String quizTitle = req.getParameter("title");
+		if(quizTitle.equals("")){
+			quizTitle = "Quiz";
+		}
+		newQuiz.setTitle(quizTitle);
+		newQuiz.setUserID(userID);
 		ArrayList<SmartQuestion> new_quiz_questions = new ArrayList<SmartQuestion>();		
 		
 		/*Build questions and store them in new_quiz_questions*/
 		for(int i = 1; i <=1; i++)
 		{
-			String question_text = req.getParameter("question1");
-			System.out.println("\n" + "Checking Here: " + question_text);
-			ArrayList<String> answerChoices = new ArrayList<String>();		
-			int correct_answer_choice;
-			for(int j = 1; j<= 4; j++)
-			{
-				String parsedInAnswerChoice = req.getParameter("answer" + Integer.toString(i) + "_" + Integer.toString(j));
-				answerChoices.add(parsedInAnswerChoice);
-				System.out.println("Answers: " + parsedInAnswerChoice);
+			String question_text = req.getParameter("question" + Integer.toString(i));
+			if(!question_text.equals("")){
+				System.out.println("\n" + "Checking Here: " + question_text);
+				ArrayList<String> answerChoices = new ArrayList<String>();		
+				int correct_answer_choice;
+				for(int j = 1; j<= 4; j++)
+				{
+					String parsedInAnswerChoice = req.getParameter("answer" + Integer.toString(i) + "_" + Integer.toString(j));
+					answerChoices.add(parsedInAnswerChoice);
+					System.out.println("Answers: " + parsedInAnswerChoice);
+				}
+				String correctAnswer = req.getParameter("correct" + Integer.toString(i));
+				System.out.println("Before:" + correctAnswer);
+				if(correctAnswer.equals("")){
+					correctAnswer = "1";
+				}
+				System.out.println("After:" + correctAnswer);
+				correct_answer_choice =  Integer.parseInt(correctAnswer);
+
+				SmartQuestion new_quiz_question = new SmartQuestion(question_text,answerChoices,correct_answer_choice);		
+				new_quiz_questions.add(new_quiz_question);
+				
 			}
-			correct_answer_choice =  Integer.parseInt(req.getParameter("correct" + Integer.toString(i)));
-			SmartQuestion new_quiz_question = new SmartQuestion(question_text,answerChoices,correct_answer_choice);		
-			new_quiz_questions.add(new_quiz_question);
-			newQuiz.setQuestions(new_quiz_questions);
 			
 		}
-		
-		
-		
-		/*String title = req.getParameter("title");
-		String questionText = req.getParameter("question");
-		String answer1 = req.getParameter("answer1");
-		String answer2 = req.getParameter("answer2");
-		String answer3 = req.getParameter("answer3");
-		String answer4 = req.getParameter("answer4");
-		String correctAnswer =req.getParameter("correct");
-		if(title != null)
-			question.setTitle(title);
-		if(question != null)
-			question.setQuestion(questionText);
-		if(answer1 != null)
-			question.addAnswers(answer1);
-		if(answer2 != null)
-			question.addAnswers(answer2);
-		if(answer3 != null)
-			question.addAnswers(answer3);
-		if(answer4 != null)
-			question.addAnswers(answer4);
-		if(correctAnswer != null){
-			question.setCorrect(Integer.parseInt(correctAnswer));
+		if(!new_quiz_questions.isEmpty()){
+			newQuiz.setQuestions(new_quiz_questions);
+			//Objectify Store Here
 		}
-		if(title != null && question != null) {
-			Key key = KeyFactory.createKey("Title", title);
-			Entity Question = new Entity("Question", key);
-			Question.setProperty("question_title", title);
-			Question.setProperty("question_content", questionText);
-			datastore.put(Question);
-		}*/
-		
-		
 		resp.sendRedirect("/home.jsp");
 		
 	}
+	static final String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	
-	
-	
+	public String randomString(int len) {
+		StringBuilder idGen = new StringBuilder(len);
+		
+		for(int i = 0; i < len; i += 1) {
+			idGen.append(chars.charAt(new SecureRandom().nextInt(chars.length())));
+		}
+		
+		return idGen.toString();
+	}
 }
