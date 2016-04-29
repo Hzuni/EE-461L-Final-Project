@@ -15,7 +15,9 @@ public class SmartQuiz {
 	}
 	
 	
-	
+	public void setQuizID(String sID) {
+		quizID = sID;
+	}
 	public String getQuizID() {
 		return quizID;
 	}
