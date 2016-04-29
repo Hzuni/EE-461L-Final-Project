@@ -40,8 +40,11 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		
+		String userId = req.getParameter("userId");
+		
 		SmartQuiz newQuiz = new SmartQuiz();		
 		newQuiz.setTitle(req.getParameter("title"));
+		newQuiz.setUserID(userId);
 		ArrayList<SmartQuestion> new_quiz_questions = new ArrayList<SmartQuestion>();		
 		
 		/*Build questions and store them in new_quiz_questions*/
@@ -58,7 +61,10 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 				System.out.println("Answers: " + parsedInAnswerChoice);
 			}
 			correct_answer_choice =  Integer.parseInt(req.getParameter("correct" + Integer.toString(i)));
-			SmartQuestion new_quiz_question = new SmartQuestion(question_text,answerChoices,correct_answer_choice);			
+			SmartQuestion new_quiz_question = new SmartQuestion(question_text,answerChoices,correct_answer_choice);		
+			new_quiz_questions.add(new_quiz_question);
+			newQuiz.setQuestions(new_quiz_questions);
+			
 		}
 		
 		

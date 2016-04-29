@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class SmartQuiz {
 	
+	private String userId;
 	private static final int MIN_QUESTION_NUMBER = 5;
 	private String title;
 	private ArrayList<SmartQuestion> questions;
@@ -39,5 +40,11 @@ public class SmartQuiz {
 		this.title = title;
 	}
 	
+	public String getUserID() {
+		return userId;
+	}
+	public void setUserID(String uID) {
+		userId = uID;
+	}
 	
 }

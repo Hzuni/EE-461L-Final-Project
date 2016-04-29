@@ -10,6 +10,7 @@
 <%@ page import="com.google.appengine.api.datastore.Key" %>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page import="smartclicker.SmartClickerServlet" %>
 
 <%@ page import="smartclicker.SmartUser" %>
 
@@ -20,6 +21,7 @@
   	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   </head>
   <%
+  SmartUser loggedInUser;
   String userName = request.getParameter("userName");
     if (userName == null) {
     	userName = "default";
@@ -27,6 +29,10 @@
     pageContext.setAttribute("userName", userName);
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
+    
+    if(user != null){
+    	loggedInUser = SmartClickerServlet.userManagment(user.getUserId());
+  	}
     %>
    <ul class="border">
 		<li class="topbar" style="font-weight:bold"><a href="home.jsp">Smart Clicker</a></li>
@@ -123,7 +129,7 @@
 		      		
 		      		
 		      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Create" /></div>
-		      		<input type="hidden" name="userName" value="${fn:escapeXml(userName)}"/>
+		      		<input type="hidden" name="userId" value="${fn:escapeXml(loggedInUser)}"/>
 		   	 	</form>
 		 	</div>
 		</div>   
