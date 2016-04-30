@@ -12,6 +12,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%@ page import="smartclicker.SmartUser" %>
+<%@ page import="smartclicker.SmartQuiz" %>
+<%@ page import="smartclicker.SmartQuestion" %>
+<%@ page import="java.util.ArrayList;" %>
 
 <html>
   <head>
@@ -66,12 +69,22 @@
 					<h6>Quiz:</h6>
 				</header>
 				<%
-				for(Question question : Quiz){
-					pageContext.setAttribute("quiz_content", question.getProperty("content"));
-					pageContext.setAttribute("quiz_answer1", question.getProperty("answer1"));
-					pageContext.setAttribute("quiz_answer2", question.getProperty("answer2"));
-					pageContext.setAttribute("quiz_answer3", question.getProperty("answer3"));
-					pageContext.setAttribute("quiz_answer4", question.getProperty("answer4"));
+				SmartQuiz quiz = (SmartQuiz)request.getAttribute("smartQuiz");
+				
+				System.out.println("Checking Quiz: " + quiz);
+				
+				String title = quiz.getTitle();
+				ArrayList<SmartQuestion> questions = quiz.getQuestions();
+				
+				System.out.println("Checking Take Quiz Title: " + title);
+				
+				for(SmartQuestion question : questions){
+					pageContext.setAttribute("quiz_content", question.getQuestion());
+					ArrayList<String> answers = question.getAnswers();
+					pageContext.setAttribute("quiz_answer1", answers.get(0));
+					pageContext.setAttribute("quiz_answer2", answers.get(1));
+					pageContext.setAttribute("quiz_answer3", answers.get(2));
+					pageContext.setAttribute("quiz_answer4", answers.get(3));
 					%>
 			    	<form action="/teacher" method="post" style="padding: 20px;">
 			      		<div>${fn:escapeXml(quiz_content)}</div>

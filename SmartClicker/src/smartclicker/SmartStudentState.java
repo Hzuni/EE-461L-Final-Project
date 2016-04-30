@@ -1,6 +1,7 @@
 package smartclicker;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +18,26 @@ public class SmartStudentState extends HttpServlet implements SmartUserState{
 	/*Used for taking Quizes*/
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
+		String QuizID = req.getParameter("inputID");
 		
+		System.out.println("Checking: " + QuizID);
 		
-        resp.sendRedirect("/quiz.jsp");
+		SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
+		SmartQuiz studentQuiz = objectify.retrieveQuiz(QuizID);
+		
+		if(studentQuiz == null) {
+			String emptyString = "empty";
+			ArrayList<SmartQuestion> blank = new ArrayList<SmartQuestion>();
+			
+			System.out.println("Take Quiz null check: " + QuizID);
+		
+			SmartQuiz empty = new SmartQuiz(emptyString, emptyString, emptyString, blank);
+			req.setAttribute("smartQuiz", empty);
+		}
+		else {
+			System.out.println("Take Quiz non-null check: " + QuizID);
+			req.setAttribute("smartQuiz", studentQuiz);
+		}
+        resp.sendRedirect("/takequiz.jsp");
 	}
 }

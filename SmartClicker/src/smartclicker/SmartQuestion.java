@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class SmartQuestion {
 
 	private String question;
-	private String title;
 	private ArrayList<String> answerChoices;
 	private int correctAnswerChoice;
 	

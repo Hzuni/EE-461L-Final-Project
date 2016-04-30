@@ -7,7 +7,7 @@ import com.googlecode.objectify.annotation.Id;
 public class SmartQuiz {
 	
 	@Id private String quizID;
-	private String userId;
+	private String userID;
 	private static final int MIN_QUESTION_NUMBER = 5;
 	private String title;
 	private ArrayList<SmartQuestion> questions;
@@ -15,6 +15,13 @@ public class SmartQuiz {
 
 	public SmartQuiz(){
 		
+	}
+	
+	public SmartQuiz(String qID, String uID, String t, ArrayList<SmartQuestion> qs) {
+		quizID = qID;
+		userID = uID;
+		title = t;
+		questions = qs;
 	}
 	
 	public void setQuizID(String sID) {
@@ -45,10 +52,10 @@ public class SmartQuiz {
 	}
 	
 	public String getUserID() {
-		return userId;
+		return userID;
 	}
 	public void setUserID(String uID) {
-		userId = uID;
+		userID = uID;
 	}
 	
 }

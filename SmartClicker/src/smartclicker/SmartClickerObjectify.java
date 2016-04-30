@@ -54,6 +54,18 @@ public class SmartClickerObjectify {
 		
 	}
 	
+	public SmartQuiz retrieveQuiz(String quizID) {
+		
+		Ref<SmartQuiz> result = ofy().load().type(SmartQuiz.class).filter("quizID", quizID).first();
+		SmartQuiz retrieved = result.get();
+		if(retrieved != null) {
+			return retrieved;
+		}
+		else {
+			return null;
+		}
+	}
+	
 	public  String newQuizManagment(SmartQuiz newQuiz)
 	{
 		if(!registered){
