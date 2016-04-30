@@ -102,4 +102,5 @@ h1.title {
    left: 10px;
    width: 100%; 
 }
-
+nav ul{height:200px; width:90%;}
+nav ul{overflow:hidden; overflow-y:scroll;}
