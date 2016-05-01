@@ -60,7 +60,7 @@ public class SmartQuiz {
 	public void setUserID(String uID) {
 		userID = uID;
 	}
-	public static String randomString(int len) {
+	public static String generateQuizId(int len) {
 		StringBuilder idGen = new StringBuilder(len);
 		
 		for(int i = 0; i < len; i += 1) {
