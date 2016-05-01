@@ -7,7 +7,7 @@ import com.googlecode.objectify.annotation.Id;
 
 @Entity
 public class SmartQuestion {
-	@Id private long question_id;
+	@Id private String question_id;
 	private String question;
 	private ArrayList<String> answerChoices;
 	private int correctAnswerChoice;
