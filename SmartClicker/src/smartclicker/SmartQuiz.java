@@ -1,5 +1,7 @@
 package smartclicker;
+import java.security.SecureRandom;
 import java.util.ArrayList;
+
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
@@ -11,6 +13,7 @@ public class SmartQuiz {
 	private static final int MIN_QUESTION_NUMBER = 5;
 	private String title;
 	private ArrayList<SmartQuestion> questions;
+	static final String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";	
 	
 
 	public SmartQuiz(){
@@ -56,6 +59,15 @@ public class SmartQuiz {
 	}
 	public void setUserID(String uID) {
 		userID = uID;
+	}
+	public static String randomString(int len) {
+		StringBuilder idGen = new StringBuilder(len);
+		
+		for(int i = 0; i < len; i += 1) {
+			idGen.append(chars.charAt(new SecureRandom().nextInt(chars.length())));
+		}
+		
+		return idGen.toString();
 	}
 	
 }

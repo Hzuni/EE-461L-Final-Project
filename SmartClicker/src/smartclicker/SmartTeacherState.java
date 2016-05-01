@@ -42,6 +42,8 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		
+		UserService userService = UserServiceFactory.getUserService();
+		User user = userService.getCurrentUser();
 		String userID = req.getParameter("userId");
 		
 		SmartQuiz newQuiz = new SmartQuiz();	

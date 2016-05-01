@@ -1,6 +1,11 @@
 package smartclicker;
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
+import java.util.HashMap;
+
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.Ref;
 
@@ -68,13 +73,14 @@ public class SmartClickerObjectify {
 	
 	public  String newQuizManagment(SmartQuiz newQuiz)
 	{
+		
 		if(!registered){
 			register();
 		}	
 		SmartQuiz inObjectify = new SmartQuiz();		
-		String generatedQuizId = "";
+		String generatedQuizId = null;
 		while(inObjectify != null){
-			generatedQuizId = "meow"; //randomString();
+			generatedQuizId = SmartQuiz.generateQuizId(5);
 			Ref<SmartQuiz> result = ofy().load().type(SmartQuiz.class).filter("quizId",generatedQuizId).first();
 			inObjectify = result.get();
 		}
@@ -84,6 +90,11 @@ public class SmartClickerObjectify {
 		System.out.println(generatedQuizId);
 		return generatedQuizId;
 	
+	}
+	public HashMap<String,String> retriveCreatedQuizes(String userId)
+	{
+		Iterable<SmartQuiz> userCreatedQuizes = ofy().load().type(SmartQuiz.class).filter("userID", userId).iterable();
+		return null;
 	}
 
 }
