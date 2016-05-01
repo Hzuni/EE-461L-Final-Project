@@ -40,24 +40,20 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 	
 	/*Used for quiz creation*/
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
-		
+			throws IOException {		
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
-		String userID = req.getParameter("userId");
+		SmartUser quizCreator;
 		
-		SmartQuiz newQuiz = new SmartQuiz();	
-		
-		String quizID = randomString(4);
-		System.out.println("Quiz ID: " + quizID);
-		
-		//newQuiz.setQuizID(quizID);
+				
+		SmartQuiz newQuiz = new SmartQuiz();			
 		String quizTitle = req.getParameter("title");
 		if(quizTitle.equals("")){
 			quizTitle = "Quiz";
 		}
+		
 		newQuiz.setTitle(quizTitle);
-		newQuiz.setUserID(userID);
+		newQuiz.setUserID(user.getUserId());
 		ArrayList<SmartQuestion> new_quiz_questions = new ArrayList<SmartQuestion>();		
 		
 		/*Build questions and store them in new_quiz_questions*/
@@ -92,19 +88,12 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 			newQuiz.setQuestions(new_quiz_questions);
 			SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
 			objectify.newQuizManagment(newQuiz);
-			
+			quizCreator = objectify.retrieveUser(user.getUserId());
+			/*Last Step is to asscociate the quiz with it's creator*/
+			quizCreator.addCreatedQuiz(newQuiz.getQuizID(), newQuiz.getTitle());
 		}
 		resp.sendRedirect("/home.jsp");
 		
 	}
-	static final String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";	
-	public String randomString(int len) {
-		StringBuilder idGen = new StringBuilder(len);
-		
-		for(int i = 0; i < len; i += 1) {
-			idGen.append(chars.charAt(new SecureRandom().nextInt(chars.length())));
-		}
-		
-		return idGen.toString();
-	}
+	
 }

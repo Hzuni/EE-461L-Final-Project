@@ -2,8 +2,12 @@ package smartclicker;
 
 import java.util.ArrayList;
 
-public class SmartQuestion {
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
 
+@Entity
+public class SmartQuestion {
+	@Id private long question_id;
 	private String question;
 	private ArrayList<String> answerChoices;
 	private int correctAnswerChoice;

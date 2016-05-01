@@ -1,6 +1,9 @@
 package smartclicker;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.google.appengine.api.users.User;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -9,20 +12,30 @@ import com.googlecode.objectify.annotation.Id;
 public class SmartUser {
 	@Id private String userId;
 	
-	private ArrayList<String> createdQuizIds; 
-	private ArrayList<String> courseIds;
+	private Map<String,String> createdQuizIds; 
 	
 	public SmartUser(){
-		this.userId ="00000000";
+		this.userId ="";
+		createdQuizIds = new HashMap<String,String>();
 	}
 	public SmartUser(String userId){
-		this.userId=userId;
-		
+		this();
+		this.userId=userId;		
 	}
-	
-	public String getGoogleId() {
+	public void addCreatedQuiz(String quizId,String title)
+	{
+		/*quizId is the key which is guaranteed to be unique*/
+		createdQuizIds.put(quizId,title);
+	}
+
+
+	public String getUserId() {
 		return userId;
 	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 	
 
 }

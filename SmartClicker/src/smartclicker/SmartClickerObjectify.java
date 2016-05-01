@@ -45,7 +45,7 @@ public class SmartClickerObjectify {
 		if(retrieved != null)
 		{
 			System.out.println("We have a returning user");
-			//TODO need to add code to retrive user quizes via google Id and display this all on home.jsp
+			//TODO need to add code to retrive  quizes via google Id and display this all on home.jsp
 			
 			return retrieved;
 		}
@@ -70,8 +70,15 @@ public class SmartClickerObjectify {
 			return null;
 		}
 	}
+	public String addNewQuestion(SmartQuestion newQuestion)
+	{
+		
+		//TODO will be written to add a new quiz question to the Objectify
+		// Returns the Question id which'll be stored within a questionIds list in SmartQuiz
+		return null;
+	}
 	
-	public  String newQuizManagment(SmartQuiz newQuiz)
+	public  String addNewQuiz(SmartQuiz newQuiz)
 	{
 		
 		if(!registered){
@@ -91,10 +98,6 @@ public class SmartClickerObjectify {
 		return generatedQuizId;
 	
 	}
-	public HashMap<String,String> retriveCreatedQuizes(String userId)
-	{
-		Iterable<SmartQuiz> userCreatedQuizes = ofy().load().type(SmartQuiz.class).filter("userID", userId).iterable();
-		return null;
-	}
+	
 
 }

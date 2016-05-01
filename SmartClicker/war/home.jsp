@@ -29,19 +29,12 @@
 	User user = userService.getCurrentUser();
 
 	/*The Smart User Who is currently logged in will be stored in our variable named loggedInUser*/
+	SmartUser loggedInUser = null;
 	if (user != null) {
-		/*SmartUser loggedInUser = SmartClickerServlet.userManagment(user.getUserId());*/
-		SmartClickerObjectify objectify = SmartClickerObjectify
-				.getInstance();
-		SmartUser loggedInUser = objectify.retrieveUser(user
-				.getUserId());
+		SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
+		loggedInUser = objectify.retrieveUser(user.getUserId());
 	}
-
-	String userName = request.getParameter("userName");
-	if (userName == null) {
-		userName = "default";
-	}
-	pageContext.setAttribute("userName", userName);
+	
 %>
 
 <ul class="border">
@@ -53,7 +46,7 @@
 		<li class="topbar">
 			<%
 				if (user != null) {
-					pageContext.setAttribute("user", user);
+						pageContext.setAttribute("user", user);
 			%> Welcome ${fn:escapeXml(user)}
 		<li class="topbar"><a
 			href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign
@@ -85,7 +78,6 @@
 				<div class="w3-threequarter w3-white" style="padding: 20px;">
 					<nav>
 						<ul>
-							<li>${fn:escapeXml("My First Quiz")}</li>
 							<li>Quiz 1</li>
 							<li>Quiz 2</li>
 							<li>Quiz 3</li>
@@ -126,10 +118,10 @@
 								</textarea>
 						</div>
 						<div class="w3-quarter">
-							<div style="margin-left: 34%; margin-top: 70%;padding-bottom: 10px;">
-							<input
-								style="margin-top: 10px; width: 130px; "
-								type="submit" class="original" value="Take Quiz" />
+							<div
+								style="margin-left: 34%; margin-top: 70%; padding-bottom: 10px;">
+								<input style="margin-top: 10px; width: 130px;" type="submit"
+									class="original" value="Take Quiz" />
 							</div>
 						</div>
 					</form>

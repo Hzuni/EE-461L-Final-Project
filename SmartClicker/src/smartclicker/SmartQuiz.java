@@ -1,6 +1,7 @@
 package smartclicker;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -12,7 +13,8 @@ public class SmartQuiz {
 	private String userID;
 	private static final int MIN_QUESTION_NUMBER = 5;
 	private String title;
-	private ArrayList<SmartQuestion> questions;
+	private ArrayList<String> questionIds; 
+	
 	static final String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";	
 	
 
@@ -20,11 +22,14 @@ public class SmartQuiz {
 		
 	}
 	
-	public SmartQuiz(String qID, String uID, String t, ArrayList<SmartQuestion> qs) {
-		quizID = qID;
-		userID = uID;
-		title = t;
-		questions = qs;
+	public SmartQuiz(String qID, String uID, String t, ArrayList<String> qs) {
+		this.quizID = qID;
+		this.userID = uID;
+		this.title = t;
+		this.questionIds=qs;
+	}
+	public static int getMinimumQuestions(){
+		return MIN_QUESTION_NUMBER;
 	}
 	
 	public void setQuizID(String sID) {
@@ -33,19 +38,10 @@ public class SmartQuiz {
 	public String getQuizID() {
 		return quizID;
 	}
-	public ArrayList<SmartQuestion> getQuestions() {
-		return questions;
+	public ArrayList<String> getQuestionIds() {
+		return questionIds;
 	}
-	public static int getMinimumQuestions(){
-		return MIN_QUESTION_NUMBER;
-	}
-	
-	public void setQuestions(ArrayList<SmartQuestion> questions) {
-		this.questions = questions;
-	}
-	public void setQuestionNumber(int q_num, SmartQuestion q){
-		questions.set(q_num, q);
-	}
+
 	
 	public String getTitle() {
 		return title;
@@ -60,6 +56,10 @@ public class SmartQuiz {
 	public void setUserID(String uID) {
 		userID = uID;
 	}
+	
+	
+	
+	
 	public static String generateQuizId(int len) {
 		StringBuilder idGen = new StringBuilder(len);
 		
@@ -69,5 +69,6 @@ public class SmartQuiz {
 		
 		return idGen.toString();
 	}
+	
 	
 }

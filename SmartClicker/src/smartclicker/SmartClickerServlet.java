@@ -1,4 +1,4 @@
-package smartclicker;
+ package smartclicker;
 
 import java.io.IOException;
 import java.util.logging.Logger;
