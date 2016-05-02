@@ -75,22 +75,36 @@
 					<h3>My Created Quizes</h3>
 				</header>
 				<div class="w3-threequarter w3-white" style="padding: 20px;">
-						<ul>
-								<% 
-								HashMap<String,String> createdQuizes = loggedInUser.displayCreatedQuizes();
-								System.out.println(createdQuizes);
-								Set<String> idSet = createdQuizes.keySet();
-								for(String id : idSet)
-								{
-								%>						
-								
-								<li>${id} </li>						
+					<div id = "quizlist">		
+							<div id="textbox"> 								
+  							<p class="alignleft"><b>Your Created Quizes</b></></p>
+							<p class="alignright"><b>Quiz Id</b></p>
+							</div>
+							<div style="clear: both;"></div>						
 							
-								<%
-								}
-								%>
-						
-						</ul>
+							<ul id ="navlist">
+									<% 
+									HashMap<String,String> createdQuizes = loggedInUser.displayCreatedQuizes();
+									System.out.println(createdQuizes);
+									Set<String> idSet = createdQuizes.keySet();
+									
+									for(String id : idSet)
+									{
+										pageContext.setAttribute("quizId", id);
+										pageContext.setAttribute("quizTitle",createdQuizes.get(id));
+									%>																				
+									<div id="textbox"> 								
+	  								<p class="alignleft">	<a href="#">${quizTitle}</a></p>
+									<p class="alignright">${quizId}</p>
+									</div>
+									<div style="clear: both;"></div>						
+								
+									<%
+									}
+									%>
+							
+							</ul>
+					</div>
 				</div>
 
 				<div class="w3-quarter">

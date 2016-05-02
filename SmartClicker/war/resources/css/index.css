@@ -6,11 +6,11 @@ body {
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #ff9800;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #ff9800;
 }
 
 ul.border {
@@ -19,88 +19,125 @@ ul.border {
 
 li.topbar {
 	display: block;
-    color: white;
-    font-style: bold;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    float: left;
+	color: white;
+	font-style: bold;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	float: left;
 }
 
 li a {
-    display: block;
-    font-style: normal; 
-    color: white;
-    text-align: center;
-    text-decoration: none;
+	display: block;
+	font-style: normal;
+	color: white;
+	text-align: center;
+	text-decoration: none;
 }
 
 p.thick {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 #page-wrap {
-    padding-top: 20px;
-    padding-left: 55px;
-    padding-right: 55px;
-    padding-bottom: 500px;
-    width: 1200px;
-    margin: 0 auto;
-    background-color: #FFFFFF;
+	padding-top: 20px;
+	padding-left: 55px;
+	padding-right: 55px;
+	padding-bottom: 500px;
+	width: 1200px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
 }
 
 #post-box {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	padding-top: 20px;
-    padding-left: 55px;
-    padding-right: 55px;
-    padding-bottom: 20px;
-    background-color:rgba(255, 255, 255, 1);
-    border: 2px solid #D6D6D6;
+	padding-left: 55px;
+	padding-right: 55px;
+	padding-bottom: 20px;
+	background-color: rgba(255, 255, 255, 1);
+	border: 2px solid #D6D6D6;
 }
 
 textarea {
-    width: 100%;
-    height: 150px;
-    margin-bottom: 20px;
-    resize: vertical;
+	width: 100%;
+	height: 150px;
+	margin-bottom: 20px;
+	resize: vertical;
 }
 
 textarea.title {
-    width: 100%;
-    height: 26px;
-    margin-bottom: 20px;
-    resize: none;
+	width: 100%;
+	height: 26px;
+	margin-bottom: 20px;
+	resize: none;
 }
 
 input.original {
 	background: #ff9800;
-    padding: 8px 15px 8px 15px;
-    border: none;
+	padding: 8px 15px 8px 15px;
+	border: none;
 }
 
-input.submitlink{
+input.submitlink {
 	background-color: transparent;
 	padding-top: 14px;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-family:inherit;
-    font-size: inherit;
+	border: none;
+	color: white;
+	cursor: pointer;
+	font-family: inherit;
+	font-size: inherit;
 }
 
-.image { 
-   position: relative; 
-   width: 100%; /* for IE 6 */
+.image {
+	position: relative;
+	width: 100%; /* for IE 6 */
 }
 
-h1.title { 
-   position: absolute; 
-   font-style: bold;
-   top: -10px;
-   left: 10px;
-   width: 100%; 
+h1.title {
+	position: absolute;
+	font-style: bold;
+	top: -10px;
+	left: 10px;
+	width: 100%;
 }
-nav ul{height:200px; width:90%;}
-nav ul{overflow:hidden; overflow-y:scroll;}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
+ul#navlist {
+	height: 20%;
+	color: #000;
+	background-color: #fff;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+ul#navlist li {
+	display: inline;
+}
+
+ul#navlist li p:hover {
+	background-color: #369;
+	color: #fff;
+}
+
+ul#navlist li p {
+	float: left;
+	width: 5em;
+	color: #fff;
+	background-color: #036;
+	padding: 0.2em 1em;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+}
+
+div#tquizlist {
+	width: 90%;
+}
