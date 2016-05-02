@@ -13,8 +13,7 @@ public class SmartQuiz {
 	private String userID;
 	private static final int MIN_QUESTION_NUMBER = 5;
 	private String title;
-	private ArrayList<String> questionIds; 	
-	
+	private ArrayList<String> questionIds; 		
 
 	public SmartQuiz(){
 		
@@ -53,5 +52,11 @@ public class SmartQuiz {
 	}
 	public void setUserID(String uID) {
 		userID = uID;
+	}
+
+	public void addQuestion(String questionId) {
+		questionIds.add(questionId);
+		return;
+		
 	}
 }
