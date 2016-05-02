@@ -3,9 +3,6 @@
 <%@ page import="com.google.appengine.api.users.User"%>
 <%@ page import="com.google.appengine.api.users.UserService"%>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory"%>
-<%@ page
-	import="com.google.appengine.api.datastore.DatastoreServiceFactory"%>
-<%@ page import="com.google.appengine.api.datastore.DatastoreService"%>
 <%@ page import="com.google.appengine.api.datastore.Query"%>
 <%@ page import="com.google.appengine.api.datastore.Entity"%>
 <%@ page import="com.google.appengine.api.datastore.FetchOptions"%>
@@ -15,6 +12,8 @@
 <%@ page import="smartclicker.SmartUser"%>
 <%@ page import="smartclicker.SmartClickerServlet"%>
 <%@ page import="smartclicker.SmartClickerObjectify"%>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Set" %>
 
 
 <html>
@@ -76,19 +75,22 @@
 					<h3>My Created Quizes</h3>
 				</header>
 				<div class="w3-threequarter w3-white" style="padding: 20px;">
-					<nav>
 						<ul>
-							<li>Quiz 1</li>
-							<li>Quiz 2</li>
-							<li>Quiz 3</li>
-							<li>Quiz 4</li>
-							<li>Quiz 5</li>
-							<li>Quiz 6</li>
-							<li>Quiz 7</li>
-							<li>Quiz 8</li>
-							<li>Quiz 9</li>
+								<% 
+								HashMap<String,String> createdQuizes = loggedInUser.displayCreatedQuizes();
+								System.out.println(createdQuizes);
+								Set<String> idSet = createdQuizes.keySet();
+								for(String id : idSet)
+								{
+								%>						
+								
+								<li>${id} </li>						
+							
+								<%
+								}
+								%>
+						
 						</ul>
-					</nav>
 				</div>
 
 				<div class="w3-quarter">

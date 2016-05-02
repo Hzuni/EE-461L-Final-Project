@@ -16,7 +16,8 @@ public class SmartQuestion {
 
 	
 	public SmartQuestion() {
-		answerChoices = new ArrayList<String>();
+		this.answerChoices = new ArrayList<String>();
+		
 	}
 
 	public SmartQuestion(String question,

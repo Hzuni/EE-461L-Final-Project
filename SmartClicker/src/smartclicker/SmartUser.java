@@ -12,8 +12,12 @@ import com.googlecode.objectify.annotation.Id;
 public class SmartUser {
 	@Id private String userId;
 	
-	private Map<String,String> createdQuizIds; 
+	private HashMap<String,String> createdQuizIds; 
 	
+	public HashMap<String, String> displayCreatedQuizes() {
+		/*To be used by home.jsp*/
+		return createdQuizIds;
+	}
 	public SmartUser(){
 		this.userId ="";
 		createdQuizIds = new HashMap<String,String>();
@@ -35,6 +39,7 @@ public class SmartUser {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
 
 	
 

@@ -33,6 +33,7 @@ public class SmartClickerObjectify {
     {
     	ObjectifyService.register(SmartUser.class);	
     	ObjectifyService.register(SmartQuiz.class);
+    	ObjectifyService.register(SmartQuestion.class);
     }
 
 	public SmartUser retrieveUser(String googleId)
@@ -84,8 +85,9 @@ public class SmartClickerObjectify {
 		SmartQuestion inObjectify = new SmartQuestion();		
 		String generatedQuizId = null;
 		while(inObjectify != null){
-			generatedQuizId = generateId(5);
+			generatedQuizId = generateId(8);
 			Ref<SmartQuestion> result = ofy().load().type(SmartQuestion.class).filter("question_id",generatedQuizId).first();
+			/*If the Id isn't in the Objectify then the Id will be null*/
 			inObjectify = result.get();
 		}
 		newQuestion.setQuestionID(generatedQuizId);
@@ -102,7 +104,7 @@ public class SmartClickerObjectify {
 			register();
 		}	
 		SmartQuiz inObjectify = new SmartQuiz();		
-		String generatedQuizId = null;
+		String generatedQuizId = "";
 		while(inObjectify != null){
 			generatedQuizId = generateId(5);
 			Ref<SmartQuiz> result = ofy().load().type(SmartQuiz.class).filter("quizId",generatedQuizId).first();

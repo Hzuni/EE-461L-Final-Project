@@ -10,18 +10,22 @@ import com.googlecode.objectify.annotation.Id;
 public class SmartQuiz {
 	
 	@Id private String quizID;
-	private String userID;
+	private String userId;
 	private static final int MIN_QUESTION_NUMBER = 5;
 	private String title;
 	private ArrayList<String> questionIds; 		
 
 	public SmartQuiz(){
+		this.quizID ="";
+		this.userId = "";
+		this.title = "";
+		this.questionIds = new ArrayList<String>();
 		
 	}
 	
 	public SmartQuiz(String qID, String uID, String t, ArrayList<String> qs) {
 		this.quizID = qID;
-		this.userID = uID;
+		this.userId = uID;
 		this.title = t;
 		this.questionIds=qs;
 	}
@@ -48,10 +52,10 @@ public class SmartQuiz {
 	}
 	
 	public String getUserID() {
-		return userID;
+		return userId;
 	}
 	public void setUserID(String uID) {
-		userID = uID;
+		userId = uID;
 	}
 
 	public void addQuestion(String questionId) {
