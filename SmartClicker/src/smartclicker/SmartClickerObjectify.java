@@ -1,6 +1,7 @@
 package smartclicker;
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
+import java.security.SecureRandom;
 import java.util.HashMap;
 
 import com.google.appengine.api.users.User;
@@ -12,6 +13,8 @@ import com.googlecode.objectify.Ref;
 public class SmartClickerObjectify {
 	private  boolean registered =false;	
     private static SmartClickerObjectify instance = new SmartClickerObjectify();
+    
+    static final String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	
     
     private SmartClickerObjectify()
@@ -45,7 +48,7 @@ public class SmartClickerObjectify {
 		if(retrieved != null)
 		{
 			System.out.println("We have a returning user");
-			//TODO need to add code to retrive  quizes via google Id and display this all on home.jsp
+			//TODO need to add code to retrieve  quizes via google Id and display this all on home.jsp
 			
 			return retrieved;
 		}
@@ -75,7 +78,21 @@ public class SmartClickerObjectify {
 		
 		//TODO will be written to add a new quiz question to the Objectify
 		// Returns the Question id which'll be stored within a questionIds list in SmartQuiz
-		return null;
+		if(!registered){
+			register();
+		}
+		SmartQuestion inObjectify = new SmartQuestion();		
+		String generatedQuizId = null;
+		while(inObjectify != null){
+			generatedQuizId = generateId(5);
+			Ref<SmartQuestion> result = ofy().load().type(SmartQuestion.class).filter("question_id",generatedQuizId).first();
+			inObjectify = result.get();
+		}
+		newQuestion.setQuestionID(generatedQuizId);
+		ofy().save().entity(newQuestion).now();
+		System.out.print("New Question Added \t");
+		System.out.println(generatedQuizId);
+		return generatedQuizId;
 	}
 	
 	public  String addNewQuiz(SmartQuiz newQuiz)
@@ -87,7 +104,7 @@ public class SmartClickerObjectify {
 		SmartQuiz inObjectify = new SmartQuiz();		
 		String generatedQuizId = null;
 		while(inObjectify != null){
-			generatedQuizId = SmartQuiz.generateQuizId(5);
+			generatedQuizId = generateId(5);
 			Ref<SmartQuiz> result = ofy().load().type(SmartQuiz.class).filter("quizId",generatedQuizId).first();
 			inObjectify = result.get();
 		}
@@ -99,5 +116,13 @@ public class SmartClickerObjectify {
 	
 	}
 	
-
+	public static String generateId(int len) {
+		StringBuilder idGen = new StringBuilder(len);
+		
+		for(int i = 0; i < len; i += 1) {
+			idGen.append(chars.charAt(new SecureRandom().nextInt(chars.length())));
+		}
+		
+		return idGen.toString();
+	}
 }

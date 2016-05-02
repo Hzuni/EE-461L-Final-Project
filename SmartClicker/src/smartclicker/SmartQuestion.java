@@ -7,7 +7,7 @@ import com.googlecode.objectify.annotation.Id;
 
 @Entity
 public class SmartQuestion {
-	@Id private String question_id;
+	@Id private String questionID;
 	private String question;
 	private ArrayList<String> answerChoices;
 	private int correctAnswerChoice;
@@ -25,6 +25,7 @@ public class SmartQuestion {
 		this.question = question;
 		this.answerChoices = answers;
 		this.correctAnswerChoice = correctNumber;
+		this.questionID = "";
 	}
 	
 	public String getQuestion() {
@@ -40,9 +41,11 @@ public class SmartQuestion {
 	public void setAnswers(ArrayList<String> answers) {
 		this.answerChoices = answers;
 	}
+	
 	public int getCorrect() {
 		return correctAnswerChoice;
 	}
+	
 	public void setCorrect(int correct) {
 		this.correctAnswerChoice = correct;
 	}	
@@ -50,4 +53,10 @@ public class SmartQuestion {
 		return MIN_ANSWER_NUMBER;
 	}
 
+	public void setQuestionID(String id) {
+		this.questionID = id;
+	}	
+	public String getQuestionID(){
+		return questionID;
+	}
 }
