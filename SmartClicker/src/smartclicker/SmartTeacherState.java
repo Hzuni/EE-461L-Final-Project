@@ -80,14 +80,13 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState{
 
 				SmartQuestion new_quiz_question = new SmartQuestion(question_text,answerChoices,correct_answer_choice);		
 				new_quiz_questions.add(new_quiz_question);
-				
 			}
 			
 		}
 		if(!new_quiz_questions.isEmpty()){
-			newQuiz.setQuestions(new_quiz_questions);
+			//newQuiz.setQuestions(new_quiz_question);
 			SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
-			objectify.newQuizManagment(newQuiz);
+			objectify.addNewQuiz(newQuiz);
 			quizCreator = objectify.retrieveUser(user.getUserId());
 			/*Last Step is to asscociate the quiz with it's creator*/
 			quizCreator.addCreatedQuiz(newQuiz.getQuizID(), newQuiz.getTitle());

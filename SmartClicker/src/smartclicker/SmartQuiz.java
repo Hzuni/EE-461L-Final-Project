@@ -57,9 +57,6 @@ public class SmartQuiz {
 		userID = uID;
 	}
 	
-	
-	
-	
 	public static String generateQuizId(int len) {
 		StringBuilder idGen = new StringBuilder(len);
 		

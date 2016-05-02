@@ -27,7 +27,7 @@ public class SmartStudentState extends HttpServlet implements SmartUserState{
 		
 		if(studentQuiz == null) {
 			String emptyString = "empty";
-			ArrayList<SmartQuestion> blank = new ArrayList<SmartQuestion>();
+			ArrayList<String> blank = new ArrayList<String>();
 			
 			System.out.println("Take Quiz null check: " + QuizID);
 		
