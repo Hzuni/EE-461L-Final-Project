@@ -1,10 +1,7 @@
 package smartclicker;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
-import com.google.appengine.api.users.User;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 

@@ -2,11 +2,6 @@ package smartclicker;
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
 import java.security.SecureRandom;
-import java.util.HashMap;
-
-import com.google.appengine.api.users.User;
-import com.google.appengine.api.users.UserService;
-import com.google.appengine.api.users.UserServiceFactory;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.Ref;
 
