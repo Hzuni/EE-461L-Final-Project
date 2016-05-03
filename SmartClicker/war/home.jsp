@@ -96,7 +96,7 @@
  								<form action=/results method="get" style="margin-left: 0px; margin-top: 0px;">
  									<input type="hidden" name="quizID" value="${fn:escapeXml(quizId)}"/>
 									<div>
-										<input style="margin-top: 0px; margin-right: 5px; width: 60px;" type="submit"
+										<input style="background-color: transparent; text-decoration: underline; border: none; margin-top: 0px; margin-right: 5px; width: 60px;" type="submit"
 										class="alignleft" value= "${fn:escapeXml(quizTitle)}" />
 									</div>
 								</form>

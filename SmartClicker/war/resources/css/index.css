@@ -60,6 +60,14 @@ p.thick {
 	border: 2px solid #D6D6D6;
 }
 
+input.submitLink {
+  background-color: transparent;
+  text-decoration: underline;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
 textarea {
 	width: 100%;
 	height: 150px;
