@@ -49,6 +49,7 @@ public class DisplayResultsServlet extends HttpServlet{
 		System.out.println("Added Answer: " + check);
 		System.out.println("Chosen Answer: " + Answer);
 		System.out.println("Results for: " + QuizID);
+		
 		req.setAttribute("smartQuiz", studentQuiz);
 		req.setAttribute("answer", Answer);
 		
