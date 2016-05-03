@@ -92,7 +92,7 @@
 								pageContext.setAttribute("quizTitle",createdQuizes.get(id));
 							%>																				
 							<div id="textbox"> 								
- 								<p class="alignleft"><a href="#">${quizTitle}</a></p>
+ 								<p class="alignleft"><a href="responses.jsp">${quizTitle}</a></p>
 							<p class="alignright">${quizId}</p>
 							</div>
 							<div style="clear: both;"></div>						
