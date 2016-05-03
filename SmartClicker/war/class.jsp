@@ -28,7 +28,7 @@
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
     %>
-   <ul class="border">
+   <ul class="border" style="width: 100%;">
 		<li class="topbar" style="font-weight:bold"><a href="home.jsp">Smart Clicker</a></li>
 		
 		<ul style="float:right; list-style-type:none;">

@@ -36,7 +36,7 @@
 	
 %>
 
-<ul class="border">
+<ul class="border" style="width: 100%;">
 	<li class="topbar" style="font-weight: bold"><a href="home.jsp">Smart
 			Clicker</a></li>
 
