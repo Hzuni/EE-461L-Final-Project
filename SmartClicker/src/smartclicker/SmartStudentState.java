@@ -21,25 +21,31 @@ public class SmartStudentState extends HttpServlet implements SmartUserState{
 			throws IOException {
 		String QuizID = req.getParameter("inputID").trim();
 		
-		System.out.println("Checking: " + QuizID);
-		
-		SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
-		SmartQuiz studentQuiz = objectify.retrieveQuiz(QuizID);
-		
-		if(studentQuiz == null) {
-			System.out.println("Take Quiz null check: " + QuizID);
-		
+		if(QuizID.equals(null) || QuizID.equals("")) {
+			System.out.println("Checking NLL: " + QuizID);
 			resp.sendRedirect("/home.jsp");
 		}
 		else {
-			System.out.println("Take Quiz non-null check: " + QuizID);
-			req.setAttribute("smartQuiz", studentQuiz);
-		}
-		try {
-			System.out.println("Redirect to takeQuiz: " + QuizID);
-			req.getRequestDispatcher("/takequiz.jsp").forward(req, resp);
-		} catch (ServletException e) {
-			resp.sendRedirect("/home.jsp");
+			System.out.println("Checking: " + QuizID);
+			
+			SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
+			SmartQuiz studentQuiz = objectify.retrieveQuiz(QuizID);
+			
+			if(studentQuiz == null) {
+				System.out.println("Take Quiz null check: " + QuizID);
+			
+				resp.sendRedirect("/home.jsp");
+			}
+			else {
+				System.out.println("Take Quiz non-null check: " + QuizID);
+				req.setAttribute("smartQuiz", studentQuiz);
+			}
+			try {
+				System.out.println("Redirect to takeQuiz: " + QuizID);
+				req.getRequestDispatcher("/takequiz.jsp").forward(req, resp);
+			} catch (ServletException e) {
+				resp.sendRedirect("/home.jsp");
+			}
 		}
 	}
 }
