@@ -107,7 +107,7 @@
 					<form action=/teacher method="post"
 						style="margin-left: 25%; margin-top: 75%;">
 						<div>
-							<input style="margin-top: 10px; width: 130px;" type="submit"
+							<input style="margin-top: 10px; margin-right: 5px; width: 130px;" type="submit"
 								class="original" value="Create Quiz" />
 						</div>
 					</form>
@@ -131,8 +131,8 @@
 						</div>
 						<div class="w3-quarter">
 							<div
-								style="margin-left: 34%; margin-top: 20%; padding-bottom: 10px;">
-								<input style="margin-top: 10px; width: 130px; margin-bottom: 6px;" type="submit"
+								style="margin-left: 34%; margin-top: 20%; padding-bottom: 13px;">
+								<input style="margin-top: 10px; margin-right: 5px; width: 130px; margin-bottom: 6px;" type="submit"
 									class="original" value="Take Quiz" />
 							</div>
 						</div>
