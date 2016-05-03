@@ -30,7 +30,7 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState {
 
 	}
 
-	/* Used for Class creation */
+	/* Used for quiz creation */
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 
