@@ -3,6 +3,7 @@ package smartclicker;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,18 +27,18 @@ public class SmartStudentState extends HttpServlet implements SmartUserState{
 		SmartQuiz studentQuiz = objectify.retrieveQuiz(QuizID);
 		
 		if(studentQuiz == null) {
-			String emptyString = "empty";
-			ArrayList<String> blank = new ArrayList<String>();
-			
 			System.out.println("Take Quiz null check: " + QuizID);
 		
-			SmartQuiz empty = new SmartQuiz(emptyString, emptyString, emptyString, blank);
-			req.setAttribute("smartQuiz", empty);
+			resp.sendRedirect("/home.jsp");
 		}
 		else {
 			System.out.println("Take Quiz non-null check: " + QuizID);
 			req.setAttribute("smartQuiz", studentQuiz);
 		}
-        resp.sendRedirect("/takequiz.jsp");
+		try {
+			req.getRequestDispatcher("/takequiz.jsp").forward(req, resp);
+		} catch (ServletException e) {
+			resp.sendRedirect("/home.jsp");
+		}
 	}
 }
