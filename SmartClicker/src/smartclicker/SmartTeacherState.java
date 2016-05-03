@@ -53,7 +53,7 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState {
 		
 		/*Adding newQuestions to newQuiz*/
 		newQuestions = new ArrayList<SmartQuestion>();
-		for (int i = 1; i <= 1; i++) {
+		for (int i = 1; i <= 5; i++) {
 			String question_text = req.getParameter("question"+ Integer.toString(i));
 			
 			if (!question_text.equals("")) {

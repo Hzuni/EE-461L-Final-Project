@@ -25,15 +25,25 @@ public class DisplayResultsServlet extends HttpServlet{
 		for(String ID : IDs) {
 			SmartQuestion question = objectify.retrieveQuestion(ID);
 			ArrayList<String> answers = question.getAnswers();
-			if(Answer.equals("answer1"))
+			if(Answer.equals("answer1")) {
 				correctIndex = 0;
-			else if(Answer.equals("answer2"))
+				question.addStudentResponse(correctIndex);
+			}
+			else if(Answer.equals("answer2")) {
 				correctIndex = 1;
-			else if(Answer.equals("answer3"))
+				question.addStudentResponse(correctIndex);
+			}
+			else if(Answer.equals("answer3")) {
 				correctIndex = 2;
-			else if(Answer.equals("answer4"))
+				question.addStudentResponse(correctIndex);
+			}
+			else if(Answer.equals("answer4")) {
 				correctIndex = 3;
-			question.addStudentResponse(correctIndex);
+				question.addStudentResponse(correctIndex);
+			}
+			else {
+				
+			}
 			check = question.getStudentResponse();
 		}
 		System.out.println("Added Answer: " + check);
