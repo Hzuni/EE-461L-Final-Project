@@ -91,6 +91,7 @@
 					pageContext.setAttribute("quiz_answer2", answers.get(1));
 					pageContext.setAttribute("quiz_answer3", answers.get(2));
 					pageContext.setAttribute("quiz_answer4", answers.get(3));
+					pageContext.setAttribute("quizID", quiz.getQuizID());
 					%>
 			    	<form action="/results" method="post" style="padding: 20px;">
 			      		<div>${fn:escapeXml(quiz_content)}</div>
@@ -100,6 +101,7 @@
 			      		<div><input type="radio" name="answers" onclick="check(this.value)" value="answer3"/> : ${fn:escapeXml(quiz_answer3)}<br /></div>
 			      		<div><input type="radio" name="answers" onclick="check(this.value)" value="answer4"/> : ${fn:escapeXml(quiz_answer4)}<br /></div>
 			      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Submit" /></div>
+			      		<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
 			      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
 			   	 	</form>
 			   	 	<%

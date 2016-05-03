@@ -71,6 +71,7 @@
 				</header>
 				<%
 				SmartQuiz quiz = (SmartQuiz)request.getAttribute("smartQuiz");
+				String Answer = (String)request.getAttribute("answer");
 				
 				System.out.println("Checking Quiz: " + quiz);
 				
@@ -95,11 +96,36 @@
 			    	<form action="/results" method="get" style="padding: 20px;">
 			      		<div>${fn:escapeXml(quiz_content)}</div>
 			      		<h4>Answer choices:</h4>
-			      		<div><input/> : ${fn:escapeXml(quiz_answer1)}<br /></div>
-			      		<div><input/> : ${fn:escapeXml(quiz_answer2)}<br /></div>
-			      		<div><input/> : ${fn:escapeXml(quiz_answer3)}<br /></div>
-			      		<div><input/> : ${fn:escapeXml(quiz_answer4)}<br /></div>
-			      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Submit" /></div>
+			      		<% if(Answer.equals("answer1")){ %>
+			      		<div>Your Answer: ${fn:escapeXml(quiz_answer1)}</div>
+			      		<% } else if(Answer.equals("answer2")) {%>
+			      		<div>Your Answer: ${fn:escapeXml(quiz_answer2)}</div>
+			      		<% } else if(Answer.equals("answer3")) {%>
+			      		<div>Your Answer: ${fn:escapeXml(quiz_answer3)}</div>
+			      		<% } else if(Answer.equals("answer4")) {%>
+			      		<div>Your Answer: ${fn:escapeXml(quiz_answer4)}</div>
+			      		<% } %>
+			      		<% if(question.getCorrect() == 1){ %>
+			      		<div><b>Correct : ${fn:escapeXml(quiz_answer1)}</b><br /></div>
+			      		<% } else { %>
+			      		<div> : ${fn:escapeXml(quiz_answer1)}<br /></div>
+			      		<% } %>
+			      		<% if(question.getCorrect() == 2){ %>
+			      		<div><b>Correct : ${fn:escapeXml(quiz_answer2)}</b><br /></div>
+			      		<% } else { %>
+			      		<div> : ${fn:escapeXml(quiz_answer2)}<br /></div>
+			      		<% } %>
+			      		<% if(question.getCorrect() == 3){ %>
+			      		<div><b>correct : ${fn:escapeXml(quiz_answer3)}</b><br /></div>
+			      		<% } else { %>
+			      		<div> : ${fn:escapeXml(quiz_answer3)}<br /></div>
+			      		<% } %>
+			      		<% if(question.getCorrect() == 4){ %>
+			      		<div><b>Correct : ${fn:escapeXml(quiz_answer4)}</b><br /></div>
+			      		<% } else { %>
+			      		<div>: ${fn:escapeXml(quiz_answer4)}<br /></div>
+			      		<% } %>
+			      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Home" /></div>
 			      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
 			   	 	</form>
 			   	 	<%

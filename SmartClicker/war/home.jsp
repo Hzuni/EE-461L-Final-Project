@@ -81,29 +81,25 @@
 							<p class="alignright"><b>Quiz Id</b></p>
 							</div>
 							<div style="clear: both;"></div>						
+							<% 
+							HashMap<String,String> createdQuizes = loggedInUser.displayCreatedQuizes();
+							System.out.println(createdQuizes);
+							Set<String> idSet = createdQuizes.keySet();
 							
-							<ul id ="navlist">
-									<% 
-									HashMap<String,String> createdQuizes = loggedInUser.displayCreatedQuizes();
-									System.out.println(createdQuizes);
-									Set<String> idSet = createdQuizes.keySet();
-									
-									for(String id : idSet)
-									{
-										pageContext.setAttribute("quizId", id);
-										pageContext.setAttribute("quizTitle",createdQuizes.get(id));
-									%>																				
-									<div id="textbox"> 								
-	  								<p class="alignleft">	<a href="#">${quizTitle}</a></p>
-									<p class="alignright">${quizId}</p>
-									</div>
-									<div style="clear: both;"></div>						
-								
-									<%
-									}
-									%>
-							
-							</ul>
+							for(String id : idSet)
+							{
+								pageContext.setAttribute("quizId", id);
+								pageContext.setAttribute("quizTitle",createdQuizes.get(id));
+							%>																				
+							<div id="textbox"> 								
+ 								<p class="alignleft"><a href="#">${quizTitle}</a></p>
+							<p class="alignright">${quizId}</p>
+							</div>
+							<div style="clear: both;"></div>						
+						
+							<%
+							}
+							%>
 					</div>
 				</div>
 
@@ -127,16 +123,16 @@
 					<form action=/student method="get" style="padding: 20px;">
 						<div class="w3-threequarter">
 							<h3>Enter A Quiz ID</h3>
-							<textarea
+							<input
 								style="margin-top: 0px; margin-left: 10px; width: 130px; float: left"
 								class="title" name="inputID" rows="1" cols="10"
 								placeholder="Quiz ID">
-								</textarea>
+								</input>
 						</div>
 						<div class="w3-quarter">
 							<div
-								style="margin-left: 34%; margin-top: 70%; padding-bottom: 10px;">
-								<input style="margin-top: 10px; width: 130px;" type="submit"
+								style="margin-left: 34%; margin-top: 20%; padding-bottom: 10px;">
+								<input style="margin-top: 10px; width: 130px; margin-bottom: 6px;" type="submit"
 									class="original" value="Take Quiz" />
 							</div>
 						</div>
