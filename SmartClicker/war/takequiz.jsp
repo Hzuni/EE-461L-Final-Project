@@ -14,6 +14,7 @@
 <%@ page import="smartclicker.SmartUser" %>
 <%@ page import="smartclicker.SmartQuiz" %>
 <%@ page import="smartclicker.SmartQuestion" %>
+<%@ page import="smartclicker.SmartClickerObjectify" %>
 <%@ page import="java.util.ArrayList;" %>
 
 <html>
@@ -74,11 +75,14 @@
 				System.out.println("Checking Quiz: " + quiz);
 				
 				String title = quiz.getTitle();
-				ArrayList<SmartQuestion> questions = quiz.getQuestions();
+				ArrayList<String> IDs = quiz.getQuestionIds();
 				
 				System.out.println("Checking Take Quiz Title: " + title);
 				
-				for(SmartQuestion question : questions){
+				for(String ID : IDs) {
+					SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
+					SmartQuestion question = objectify.retrieveQuestion(ID);
+					
 					pageContext.setAttribute("quiz_content", question.getQuestion());
 					ArrayList<String> answers = question.getAnswers();
 					pageContext.setAttribute("quiz_answer1", answers.get(0));
