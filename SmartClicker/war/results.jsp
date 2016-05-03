@@ -67,7 +67,7 @@
 		<div id="page-wrap">
 			<div class="w3-card-4" style="width:100%; padding-bottom: 0px;">
 				<header class="w3-container w3-orange">
-					<h6>Quiz:</h6>
+					<h6>Quiz Results:</h6>
 				</header>
 				<%
 				SmartQuiz quiz = (SmartQuiz)request.getAttribute("smartQuiz");
@@ -92,13 +92,13 @@
 					pageContext.setAttribute("quiz_answer3", answers.get(2));
 					pageContext.setAttribute("quiz_answer4", answers.get(3));
 					%>
-			    	<form action="/results" method="post" style="padding: 20px;">
+			    	<form action="/results" method="get" style="padding: 20px;">
 			      		<div>${fn:escapeXml(quiz_content)}</div>
 			      		<h4>Answer choices:</h4>
-			      		<div><input type="radio" name="answers" onclick="check(this.value)" value="answer1"/> : ${fn:escapeXml(quiz_answer1)}<br /></div>
-			      		<div><input type="radio" name="answers" onclick="check(this.value)" value="answer2"/> : ${fn:escapeXml(quiz_answer2)}<br /></div>
-			      		<div><input type="radio" name="answers" onclick="check(this.value)" value="answer3"/> : ${fn:escapeXml(quiz_answer3)}<br /></div>
-			      		<div><input type="radio" name="answers" onclick="check(this.value)" value="answer4"/> : ${fn:escapeXml(quiz_answer4)}<br /></div>
+			      		<div><input/> : ${fn:escapeXml(quiz_answer1)}<br /></div>
+			      		<div><input/> : ${fn:escapeXml(quiz_answer2)}<br /></div>
+			      		<div><input/> : ${fn:escapeXml(quiz_answer3)}<br /></div>
+			      		<div><input/> : ${fn:escapeXml(quiz_answer4)}<br /></div>
 			      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Submit" /></div>
 			      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
 			   	 	</form>

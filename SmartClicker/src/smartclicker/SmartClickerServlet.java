@@ -15,7 +15,4 @@ public class SmartClickerServlet extends HttpProxyServlet {
     	resp.setContentType("text/plain");
 		resp.getWriter().println("Hello, world");
 	}
-    
-
-	
 }
