@@ -11,14 +11,13 @@ public class SmartQuiz {
 	private String userId;
 	private static final int MIN_QUESTION_NUMBER = 5;
 	private String title;
-	private ArrayList<String> questionIds; 		
+	private ArrayList<String> questionIds;
 
 	public SmartQuiz(){
 		this.quizID ="";
 		this.userId = "";
 		this.title = "";
 		this.questionIds = new ArrayList<String>();
-		
 	}
 	
 	public SmartQuiz(String qID, String uID, String t, ArrayList<String> qs) {

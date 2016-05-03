@@ -1,6 +1,7 @@
 package smartclicker;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,10 +14,30 @@ public class DisplayResultsServlet extends HttpServlet{
 			throws IOException {
 		String QuizID = req.getParameter("quizID").trim();
 		String Answer = req.getParameter("answers");
+		int correctIndex = 0;
+		
+		ArrayList<Integer> check = new ArrayList<Integer>();
 		
 		SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
 		SmartQuiz studentQuiz = objectify.retrieveQuiz(QuizID);
 		
+		ArrayList<String> IDs = studentQuiz.getQuestionIds();
+		for(String ID : IDs) {
+			SmartQuestion question = objectify.retrieveQuestion(ID);
+			ArrayList<String> answers = question.getAnswers();
+			if(Answer.equals("answer1"))
+				correctIndex = 0;
+			else if(Answer.equals("answer2"))
+				correctIndex = 1;
+			else if(Answer.equals("answer3"))
+				correctIndex = 2;
+			else if(Answer.equals("answer4"))
+				correctIndex = 3;
+			question.addStudentResponse(correctIndex);
+			check = question.getStudentResponse();
+		}
+		System.out.println("Added Answer: " + check);
+		System.out.println("Chosen Answer: " + Answer);
 		System.out.println("Results for: " + QuizID);
 		req.setAttribute("smartQuiz", studentQuiz);
 		req.setAttribute("answer", Answer);
