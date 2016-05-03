@@ -14,11 +14,11 @@ public class SmartStudentState extends HttpServlet implements SmartUserState{
 		
 	}
 	
-	/*Used for quiz creation*/
+	/*Used to take quizzes*/
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		
-		
-        resp.sendRedirect("/quiz.jsp");
+		System.out.println("Student taking a quiz");
+        resp.sendRedirect("/takequiz.jsp");
 	}
 }

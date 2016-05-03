@@ -102,7 +102,10 @@
 		            
 		            	<!-- This is where the joined classes will be populated -->
 		            	<form action = /student method = "get" style="padding: 20px;">
-				      		<div><input style="margin-top: 10px; margin-left: 900px; width: 130px;" type="submit" class="original" value="Join Class" /></div>
+		            		<h4>Enter a Quiz ID:</h4>
+		      				<div>
+		      				<textarea style = "margin-top: 0px; margin-left: 10px; width: 130px; float: left" class="title" name="inputID" rows="1" cols="10" placeholder="Quiz ID"></textarea>
+		      				<input style="margin-top: 0px; margin-left: 10px; width: 130px;" type="submit" class="original" value="Join Class" /></div>
 				   	 	</form>
 				   	 	
 		       		</div>
