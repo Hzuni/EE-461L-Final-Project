@@ -26,7 +26,7 @@ public class SmartStudentState extends HttpServlet implements SmartUserState{
 		SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
 		SmartQuiz studentQuiz = objectify.retrieveQuiz(QuizID);
 		
-		if(studentQuiz.equals(null)) {
+		if(studentQuiz == null) {
 			System.out.println("Take Quiz null check: " + QuizID);
 		
 			resp.sendRedirect("/home.jsp");
@@ -36,6 +36,7 @@ public class SmartStudentState extends HttpServlet implements SmartUserState{
 			req.setAttribute("smartQuiz", studentQuiz);
 		}
 		try {
+			System.out.println("Redirect to takeQuiz: " + QuizID);
 			req.getRequestDispatcher("/takequiz.jsp").forward(req, resp);
 		} catch (ServletException e) {
 			resp.sendRedirect("/home.jsp");

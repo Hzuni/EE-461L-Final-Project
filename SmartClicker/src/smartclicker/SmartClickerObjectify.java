@@ -63,21 +63,22 @@ public class SmartClickerObjectify {
 		
 	}
 	
-	public SmartQuiz retrieveQuiz(String quizID) {
+	public SmartQuiz retrieveQuiz(String IDs) {
 		
-		System.out.println("ID Loading: " + quizID);
+		System.out.println("ID Loading: " + IDs);
 		if(!registered){
 			register();
 		}
-		Ref<SmartQuiz> result = ofy().load().type(SmartQuiz.class).filter("quizID", quizID).first();
+		Ref<SmartQuiz> result = ofy().load().type(SmartQuiz.class).filter("quizID",IDs).first();
+		System.out.println("Loading Quiz 1: " + result);
 		SmartQuiz retrieved = result.get();
 		System.out.print("HERE!");
-		if(retrieved.equals(null))
+		/*if(retrieved.equals(null))
 		{
 			System.out.println("Retrieved is NULL!!!");
 		//System.out.println("Loading Quiz: " + retrieved);
-		}
-		
+		}*/
+		System.out.println("What is retrieved: " + retrieved);
 		return retrieved;
 	}
 	public String addNewQuestion(SmartQuestion newQuestion)
@@ -92,7 +93,7 @@ public class SmartClickerObjectify {
 		String generatedQuizId = null;
 		while(inObjectify != null){
 			generatedQuizId = generateId(8);
-			Ref<SmartQuestion> result = ofy().load().type(SmartQuestion.class).filter("question_id",generatedQuizId).first();
+			Ref<SmartQuestion> result = ofy().load().type(SmartQuestion.class).filter("questionID",generatedQuizId).first();
 			/*If the Id isn't in the Objectify then the Id will be null*/
 			inObjectify = result.get();
 		}
@@ -103,15 +104,18 @@ public class SmartClickerObjectify {
 		return generatedQuizId;
 	}
 	
-public SmartQuestion retrieveQuestion(String questionID) {
-		
-		Ref<SmartQuestion> result = ofy().load().type(SmartQuestion.class).filter("question_id", questionID).first();
+	public SmartQuestion retrieveQuestion(String ID) {
+			
+		if(!registered){
+			register();
+		}
+		Ref<SmartQuestion> result = ofy().load().type(SmartQuestion.class).filter("questionID", ID).first();
 		SmartQuestion retrieved = result.get();
 		if(retrieved != null) {
 			return retrieved;
 		}
 		else {
-			return null;
+				return null;
 		}
 	}
 	

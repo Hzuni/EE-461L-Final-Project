@@ -34,7 +34,7 @@ public class SmartTeacherState extends HttpServlet implements SmartUserState {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 
-		resp.sendRedirect("/quiz.jsp");
+		//resp.sendRedirect("/quiz.jsp");
 	}
 
 	/* Used for quiz creation */

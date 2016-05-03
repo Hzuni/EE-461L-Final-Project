@@ -81,7 +81,9 @@
 				
 				for(String ID : IDs) {
 					SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
+					System.out.println("Here????");
 					SmartQuestion question = objectify.retrieveQuestion(ID);
+					System.out.println("Here?!!!!" + question);
 					
 					pageContext.setAttribute("quiz_content", question.getQuestion());
 					ArrayList<String> answers = question.getAnswers();
