@@ -77,7 +77,7 @@
 				<div class="w3-threequarter w3-white" style="padding: 20px;">
 					<div id = "quizlist">		
 							<div id="textbox"> 								
-  							<p class="alignleft"><b>Your Created Quizes</b></></p>
+  							<p class="alignleft"><b>Your Created Quizes</b></p>
 							<p class="alignright"><b>Quiz Id</b></p>
 							</div>
 							<div style="clear: both;"></div>						

@@ -93,7 +93,7 @@
 					pageContext.setAttribute("quiz_answer3", answers.get(2));
 					pageContext.setAttribute("quiz_answer4", answers.get(3));
 					%>
-			    	<form action="/results" method="get" style="padding: 20px;">
+			    	<form action="home.jsp" style="padding: 20px;">
 			      		<div>${fn:escapeXml(quiz_content)}</div>
 			      		<h4>Answer choices:</h4>
 			      		<% if(Answer.equals("answer1")){ %>

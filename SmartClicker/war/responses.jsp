@@ -91,27 +91,30 @@
 					pageContext.setAttribute("quiz_content", question.getQuestion());
 					
 					ArrayList<String> answers = question.getAnswers();
-					pageContext.setAttribute("quiz_answer1", answers.get(0));
-					pageContext.setAttribute("quiz_answer2", answers.get(1));
-					pageContext.setAttribute("quiz_answer3", answers.get(2));
-					pageContext.setAttribute("quiz_answer4", answers.get(3));
 					
 					ArrayList<Integer> responses = question.getStudentResponse();
-					pageContext.setAttribute("quiz_responses1", responses.get(0));
-					pageContext.setAttribute("quiz_responses2", responses.get(1));
-					pageContext.setAttribute("quiz_responses3", responses.get(2));
-					pageContext.setAttribute("quiz_responses4", responses.get(3));
 					
 					pageContext.setAttribute("quizID", quiz.getQuizID());
+					
+					String output1 = responses.get(0) + "  Students Chose: " + answers.get(0);
+					String output2 = responses.get(1) + "  Students Chose: " + answers.get(1);
+					String output3 = responses.get(2) + "  Students Chose: " + answers.get(2);
+					String output4 = responses.get(3) + "  Students Chose: " + answers.get(3);
+					
+					pageContext.setAttribute("quiz_responses1", output1);
+					pageContext.setAttribute("quiz_responses2", output2);
+					pageContext.setAttribute("quiz_responses3", output3);
+					pageContext.setAttribute("quiz_responses4", output4);
+					
 					%>
 			    	<form action="home.jsp" style="padding: 20px;">
 			      		<div>${fn:escapeXml(quiz_content)}</div>
 			      		<h4>Answer choices:</h4>
-			      		<div> ${fn:escapeXml(quiz_answer1)}<br />${fn:escapeXml(quiz_responses1)}</div>
-			      		<div> ${fn:escapeXml(quiz_answer2)}<br />${fn:escapeXml(quiz_responses2)}</div>
-			      		<div> ${fn:escapeXml(quiz_answer3)}<br />${fn:escapeXml(quiz_responses3)}</div>
-			      		<div> ${fn:escapeXml(quiz_answer4)}<br />${fn:escapeXml(quiz_responses4)}</div>
-			      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Submit" /></div>
+			      		<div> ${fn:escapeXml(quiz_responses1)}</div>
+			      		<div> ${fn:escapeXml(quiz_responses2)}</div>
+			      		<div> ${fn:escapeXml(quiz_responses3)}</div>
+			      		<div> ${fn:escapeXml(quiz_responses4)}</div>
+			      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Home" /></div>
 			      		<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
 			      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
 			   	 	</form>
