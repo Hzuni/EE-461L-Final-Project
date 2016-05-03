@@ -92,7 +92,14 @@
 								pageContext.setAttribute("quizTitle",createdQuizes.get(id));
 							%>																				
 							<div id="textbox"> 								
- 								<p class="alignleft"><a href="responses.jsp">${quizTitle}</a></p>
+<%--  								<p class="alignleft"><a href="responses.jsp">${quizTitle}</a></p> --%>
+ 								<form action=/results method="get" style="margin-left: 0px; margin-top: 0px;">
+ 									<input type="hidden" name="quizID" value="${fn:escapeXml(quizId)}"/>
+									<div>
+										<input style="margin-top: 0px; margin-right: 5px; width: 60px;" type="submit"
+										class="alignleft" value= "${fn:escapeXml(quizTitle)}" />
+									</div>
+								</form>
 							<p class="alignright">${quizId}</p>
 							</div>
 							<div style="clear: both;"></div>						

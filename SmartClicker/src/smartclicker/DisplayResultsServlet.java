@@ -52,7 +52,16 @@ public class DisplayResultsServlet extends HttpServlet{
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		resp.sendRedirect("/home.jsp");
+		String identification = req.getParameter("quizID");
+		
+		System.out.println("Results Check: ID = " + identification);
+		
+		req.setAttribute("quizId", identification);
+		try {
+			req.getRequestDispatcher("/responses.jsp").forward(req, resp);
+		} catch (ServletException e) {
+			resp.sendRedirect("/home.jsp");
+		}
 	}
 
 }

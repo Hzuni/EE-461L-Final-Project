@@ -70,7 +70,11 @@
 					<h6>Quiz:</h6>
 				</header>
 				<%
-				SmartQuiz quiz = (SmartQuiz)request.getAttribute("smartQuiz");
+				System.out.println("Response Check 1");
+				String identification = (String)request.getAttribute("quizId");
+				SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
+				System.out.println("Response Check 2: " + identification);
+				SmartQuiz quiz = objectify.retrieveQuiz(identification);
 				
 				System.out.println("Response Checking Quiz: " + quiz);
 				
@@ -80,7 +84,6 @@
 				System.out.println("Response Checking Take Quiz Title: " + title);
 				
 				for(String ID : IDs) {
-					SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
 					System.out.println("Here????");
 					SmartQuestion question = objectify.retrieveQuestion(ID);
 					System.out.println("Here?!!!!" + question);
