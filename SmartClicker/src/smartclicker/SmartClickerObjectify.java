@@ -71,7 +71,13 @@ public class SmartClickerObjectify {
 		}
 		Ref<SmartQuiz> result = ofy().load().type(SmartQuiz.class).filter("quizID", quizID).first();
 		SmartQuiz retrieved = result.get();
-		System.out.println("Loading Quiz: " + retrieved);
+		System.out.print("HERE!");
+		if(retrieved.equals(null))
+		{
+			System.out.println("Retrieved is NULL!!!");
+		//System.out.println("Loading Quiz: " + retrieved);
+		}
+		
 		return retrieved;
 	}
 	public String addNewQuestion(SmartQuestion newQuestion)
@@ -119,7 +125,7 @@ public SmartQuestion retrieveQuestion(String questionID) {
 		String generatedQuizId = "";
 		while(inObjectify != null){
 			generatedQuizId = generateId(5);
-			Ref<SmartQuiz> result = ofy().load().type(SmartQuiz.class).filter("quizId",generatedQuizId).first();
+			Ref<SmartQuiz> result = ofy().load().type(SmartQuiz.class).filter("quizID",generatedQuizId).first();
 			inObjectify = result.get();
 		}
 		newQuiz.setQuizID(generatedQuizId);

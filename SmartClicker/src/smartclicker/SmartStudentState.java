@@ -19,14 +19,14 @@ public class SmartStudentState extends HttpServlet implements SmartUserState{
 	/*Used for taking Quizzes*/
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		String QuizID = req.getParameter("inputID");
+		String QuizID = req.getParameter("inputID").trim();
 		
 		System.out.println("Checking: " + QuizID);
 		
 		SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
 		SmartQuiz studentQuiz = objectify.retrieveQuiz(QuizID);
 		
-		if(studentQuiz == null) {
+		if(studentQuiz.equals(null)) {
 			System.out.println("Take Quiz null check: " + QuizID);
 		
 			resp.sendRedirect("/home.jsp");
