@@ -111,6 +111,7 @@
 						pageContext.setAttribute("quiz_answer4", answers.get(3));
 						pageContext.setAttribute("quizID", quiz.getQuizID());
 						%>
+						<b><u><h4>Question: </h4></u></b>
 				      	<div>${fn:escapeXml(quiz_content)}</div>
 				      		<h4>Answer choices:</h4>
 				      		<%if(index == 1) {%> 

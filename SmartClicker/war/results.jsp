@@ -82,73 +82,74 @@
 				ArrayList<String> IDs = quiz.getQuestionIds();
 				
 				System.out.println("Checking results Quiz Title: " + title);
-				
-				int index = 1;
-				for(String ID : IDs) {
-					String requestIndex = "answers" + index;
-					
-					System.out.println("Results Index Check: " + requestIndex);
-					String Answer = (String)request.getAttribute(requestIndex);
-					
-					SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
-					
-					SmartQuestion question = objectify.retrieveQuestion(ID);
-					System.out.println("Results Answer Check: " + Answer);
-					
-					
-					System.out.println("");
-					System.out.println("");
-					System.out.println("Exited results");
-					System.out.println("/*********************************************************************************************/");
-					System.out.println("");
-					System.out.println("");
-					
-					pageContext.setAttribute("quiz_content", question.getQuestion());
-					ArrayList<String> answers = question.getAnswers();
-					pageContext.setAttribute("quiz_answer1", answers.get(0));
-					pageContext.setAttribute("quiz_answer2", answers.get(1));
-					pageContext.setAttribute("quiz_answer3", answers.get(2));
-					pageContext.setAttribute("quiz_answer4", answers.get(3));
-					%>
-			    	<form action="home.jsp" style="padding: 20px;">
-			      		<div>${fn:escapeXml(quiz_content)}</div>
-			      		<h4>Answer choices:</h4>
-			      		<% if(Answer.equals("answer1")){ %>
-			      		<div>Your Answer: ${fn:escapeXml(quiz_answer1)}</div>
-			      		<% } else if(Answer.equals("answer2")) {%>
-			      		<div>Your Answer: ${fn:escapeXml(quiz_answer2)}</div>
-			      		<% } else if(Answer.equals("answer3")) {%>
-			      		<div>Your Answer: ${fn:escapeXml(quiz_answer3)}</div>
-			      		<% } else if(Answer.equals("answer4")) {%>
-			      		<div>Your Answer: ${fn:escapeXml(quiz_answer4)}</div>
-			      		<% } %>
-			      		<% if(question.getCorrect() == 1){ %>
-			      		<div><b>Correct : ${fn:escapeXml(quiz_answer1)}</b><br /></div>
-			      		<% } else { %>
-			      		<div> : ${fn:escapeXml(quiz_answer1)}<br /></div>
-			      		<% } %>
-			      		<% if(question.getCorrect() == 2){ %>
-			      		<div><b>Correct : ${fn:escapeXml(quiz_answer2)}</b><br /></div>
-			      		<% } else { %>
-			      		<div> : ${fn:escapeXml(quiz_answer2)}<br /></div>
-			      		<% } %>
-			      		<% if(question.getCorrect() == 3){ %>
-			      		<div><b>correct : ${fn:escapeXml(quiz_answer3)}</b><br /></div>
-			      		<% } else { %>
-			      		<div> : ${fn:escapeXml(quiz_answer3)}<br /></div>
-			      		<% } %>
-			      		<% if(question.getCorrect() == 4){ %>
-			      		<div><b>Correct : ${fn:escapeXml(quiz_answer4)}</b><br /></div>
-			      		<% } else { %>
-			      		<div>: ${fn:escapeXml(quiz_answer4)}<br /></div>
-			      		<% } %>
-			      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Home" /></div>
-			      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
-			   	 	</form>
-			   	 	<%
-			   	 	index += 1;
-				}
-		   	 	%>
+				%>
+				<form action="home.jsp" style="padding: 20px;"><%
+					int index = 1;
+					for(String ID : IDs) {
+						String requestIndex = "answers" + index;
+						
+						System.out.println("Results Index Check: " + requestIndex);
+						String Answer = (String)request.getAttribute(requestIndex);
+						
+						SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
+						
+						SmartQuestion question = objectify.retrieveQuestion(ID);
+						System.out.println("Results Answer Check: " + Answer);
+						
+						
+						System.out.println("");
+						System.out.println("");
+						System.out.println("Exited results");
+						System.out.println("/*********************************************************************************************/");
+						System.out.println("");
+						System.out.println("");
+						
+						pageContext.setAttribute("quiz_content", question.getQuestion());
+						ArrayList<String> answers = question.getAnswers();
+						pageContext.setAttribute("quiz_answer1", answers.get(0));
+						pageContext.setAttribute("quiz_answer2", answers.get(1));
+						pageContext.setAttribute("quiz_answer3", answers.get(2));
+						pageContext.setAttribute("quiz_answer4", answers.get(3));
+						%>
+							<b><u><h4>Question: </h4></u></b>
+				      		<div>${fn:escapeXml(quiz_content)}</div>
+				      		<h4>Answer choices:</h4>
+				      		<% if(Answer.equals("answer1")){ %>
+				      		<div>Your Answer: ${fn:escapeXml(quiz_answer1)}</div>
+				      		<% } else if(Answer.equals("answer2")) {%>
+				      		<div>Your Answer: ${fn:escapeXml(quiz_answer2)}</div>
+				      		<% } else if(Answer.equals("answer3")) {%>
+				      		<div>Your Answer: ${fn:escapeXml(quiz_answer3)}</div>
+				      		<% } else if(Answer.equals("answer4")) {%>
+				      		<div>Your Answer: ${fn:escapeXml(quiz_answer4)}</div>
+				      		<% } %>
+				      		<% if(question.getCorrect() == 1){ %>
+				      		<div><b>Correct : ${fn:escapeXml(quiz_answer1)}</b><br /></div>
+				      		<% } else { %>
+				      		<div> : ${fn:escapeXml(quiz_answer1)}<br /></div>
+				      		<% } %>
+				      		<% if(question.getCorrect() == 2){ %>
+				      		<div><b>Correct : ${fn:escapeXml(quiz_answer2)}</b><br /></div>
+				      		<% } else { %>
+				      		<div> : ${fn:escapeXml(quiz_answer2)}<br /></div>
+				      		<% } %>
+				      		<% if(question.getCorrect() == 3){ %>
+				      		<div><b>correct : ${fn:escapeXml(quiz_answer3)}</b><br /></div>
+				      		<% } else { %>
+				      		<div> : ${fn:escapeXml(quiz_answer3)}<br /></div>
+				      		<% } %>
+				      		<% if(question.getCorrect() == 4){ %>
+				      		<div><b>Correct : ${fn:escapeXml(quiz_answer4)}</b><br /></div>
+				      		<% } else { %>
+				      		<div>: ${fn:escapeXml(quiz_answer4)}<br /></div>
+				      		<% } %>
+				      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
+				   	 	<%
+				   	 	index += 1;
+					}
+			   	 	%>
+			   	 	<div><input style="margin-top: 10px;" type="submit" class="original" value="Home" /></div>
+		   	   </form>
 		 	</div>
 		</div>   
   	</body>
