@@ -117,9 +117,14 @@
 						int iout1 = (int)out1;
 						int iout2 = (int)out2;
 						int iout3 = (int)out3;
-						
-						
+											
 						System.out.println("Value Check: out0 = " + out0 + " out1 = " + out1 + " out2 = " + out2 + " out3 = " + out3);
+						
+						String output1 = iout0 + "% Of Students Chose: " + answers.get(0);
+						String output2 = iout1 + "% Of Students Chose: " + answers.get(1);
+						String output3 = iout2 + "% Of Students Chose: " + answers.get(2);
+						String output4 = iout3 + "% Of Students Chose: " + answers.get(3);
+						
 						
 						System.out.println("");
 						System.out.println("");
@@ -127,12 +132,6 @@
 						System.out.println("/*********************************************************************************************/");
 						System.out.println("");
 						System.out.println("");
-						
-						String output1 = iout0 + "% Of Students Chose: " + answers.get(0);
-						String output2 = iout1 + "% Of Students Chose: " + answers.get(1);
-						String output3 = iout2 + "% Of Students Chose: " + answers.get(2);
-						String output4 = iout3 + "% Of Students Chose: " + answers.get(3);
-						
 						
 						String outputTotal = itotal + " Students Have answered Question " + index;
 						
