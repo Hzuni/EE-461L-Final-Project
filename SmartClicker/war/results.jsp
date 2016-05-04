@@ -114,32 +114,36 @@
 							<b><u><h4>Question: </h4></u></b>
 				      		<div>${fn:escapeXml(quiz_content)}</div>
 				      		<h4>Answer choices:</h4>
-				      		<% if(Answer.equals("answer1")){ %>
-				      		<div>Your Answer: ${fn:escapeXml(quiz_answer1)}</div>
-				      		<% } else if(Answer.equals("answer2")) {%>
-				      		<div>Your Answer: ${fn:escapeXml(quiz_answer2)}</div>
-				      		<% } else if(Answer.equals("answer3")) {%>
-				      		<div>Your Answer: ${fn:escapeXml(quiz_answer3)}</div>
-				      		<% } else if(Answer.equals("answer4")) {%>
-				      		<div>Your Answer: ${fn:escapeXml(quiz_answer4)}</div>
-				      		<% } %>
 				      		<% if(question.getCorrect() == 1){ %>
-				      		<div><b>Correct : ${fn:escapeXml(quiz_answer1)}</b><br /></div>
+				      			  <%if(Answer.equals("answer1")) {%> <div><b>Correct!</b></div><%}
+				      			    else {%> <div><b>Incorrect... The Answer was: ${fn:escapeXml(quiz_answer1)}</b></div><%}%>
+				      		<% } else if(question.getCorrect() == 2) {%>
+				      			  <%if(Answer.equals("answer2")) {%> <div><b>Correct!</b></div><%}
+				      			    else {%> <div><b>Incorrect... The Answer was: ${fn:escapeXml(quiz_answer2)}</b></div><%}%>
+				      		<% } else if(question.getCorrect() == 3) {%>
+				      			  <%if(Answer.equals("answer3")) {%> <div><b>Correct!</b></div> <%}
+				      			    else {%> <div><b>Incorrect... The Answer was: ${fn:escapeXml(quiz_answer3)}</b></div> <%}%>
+				      		<% } else if(question.getCorrect() == 4) {%>
+				      			  <%if(Answer.equals("answer4")) {%> <div><b>Correct!</b></div> <%}
+				      			    else {%> <div><b>Incorrect... The Answer was: ${fn:escapeXml(quiz_answer4)}</b></div> <%}%>
+				      		<% } %>
+				      		<% if(Answer.equals("answer1")){ %>
+				      		<div><b> -> : ${fn:escapeXml(quiz_answer1)}</b><br /></div>
 				      		<% } else { %>
 				      		<div> : ${fn:escapeXml(quiz_answer1)}<br /></div>
 				      		<% } %>
-				      		<% if(question.getCorrect() == 2){ %>
-				      		<div><b>Correct : ${fn:escapeXml(quiz_answer2)}</b><br /></div>
+				      		<% if(Answer.equals("answer2")){ %>
+				      		<div><b> -> : ${fn:escapeXml(quiz_answer2)}</b><br /></div>
 				      		<% } else { %>
 				      		<div> : ${fn:escapeXml(quiz_answer2)}<br /></div>
 				      		<% } %>
-				      		<% if(question.getCorrect() == 3){ %>
-				      		<div><b>correct : ${fn:escapeXml(quiz_answer3)}</b><br /></div>
+				      		<% if(Answer.equals("answer3")){ %>
+				      		<div><b> -> : ${fn:escapeXml(quiz_answer3)}</b><br /></div>
 				      		<% } else { %>
 				      		<div> : ${fn:escapeXml(quiz_answer3)}<br /></div>
 				      		<% } %>
-				      		<% if(question.getCorrect() == 4){ %>
-				      		<div><b>Correct : ${fn:escapeXml(quiz_answer4)}</b><br /></div>
+				      		<% if(Answer.equals("answer4")){ %>
+				      		<div><b> -> : ${fn:escapeXml(quiz_answer4)}</b><br /></div>
 				      		<% } else { %>
 				      		<div>: ${fn:escapeXml(quiz_answer4)}<br /></div>
 				      		<% } %>
