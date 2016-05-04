@@ -39,6 +39,8 @@ public class DisplayResultsServlet extends HttpServlet{
 			
 			System.out.println("Check for Answer: " + Answer);
 			
+			if(Answer == null) { Answer = "incorrect";}
+			
 			if(Answer.equals("answer1")) {
 				correctIndex = 0;
 				question.addStudentResponse(correctIndex);
@@ -58,6 +60,7 @@ public class DisplayResultsServlet extends HttpServlet{
 			else {
 				
 			}
+			
 			req.setAttribute(requestIndex, Answer);
 			index += 1;
 		}

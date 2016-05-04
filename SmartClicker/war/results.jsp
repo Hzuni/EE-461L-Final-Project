@@ -114,7 +114,9 @@
 							<b><u><h4>Question: </h4></u></b>
 				      		<div>${fn:escapeXml(quiz_content)}</div>
 				      		<h4>Answer choices:</h4>
-				      		<% if(question.getCorrect() == 1){ %>
+				      		
+				      		
+				      		<%if(question.getCorrect() == 1){ %>
 				      			  <%if(Answer.equals("answer1")) {%> <div><b>Correct!</b></div><%}
 				      			    else {%> <div><b>Incorrect... The Answer was: ${fn:escapeXml(quiz_answer1)}</b></div><%}%>
 				      		<% } else if(question.getCorrect() == 2) {%>
@@ -127,6 +129,8 @@
 				      			  <%if(Answer.equals("answer4")) {%> <div><b>Correct!</b></div> <%}
 				      			    else {%> <div><b>Incorrect... The Answer was: ${fn:escapeXml(quiz_answer4)}</b></div> <%}%>
 				      		<% } %>
+				      		
+				      		
 				      		<% if(Answer.equals("answer1")){ %>
 				      		<div><b> -> : ${fn:escapeXml(quiz_answer1)}</b><br /></div>
 				      		<% } else { %>
