@@ -2,6 +2,8 @@ package smartclicker;
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
 import java.security.SecureRandom;
+import java.util.HashMap;
+
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.Ref;
 
@@ -44,7 +46,6 @@ public class SmartClickerObjectify {
 		if(retrieved != null)
 		{
 			System.out.println("We have a returning user");
-			//TODO need to add code to retrieve  quizes via google Id and display this all on home.jsp
 			
 			return retrieved;
 		}
@@ -56,6 +57,27 @@ public class SmartClickerObjectify {
 			return newUser;
 		}
 		
+	}
+	
+	public void saveQuizzes(String googleId, String qId, String title)
+	{		
+		/*By the google generated Id determines weather user has used our service before 
+		 and will retrieve their information if they have*/
+		
+		if(!registered){
+			register();
+		}
+		Ref<SmartUser> result = ofy().load().type(SmartUser.class).filter("userId",googleId).first();
+		SmartUser retrieved = result.get();		
+		if(retrieved != null)
+		{
+			System.out.println("We have a returning user");
+			
+			HashMap<String,String> updateStorage = retrieved.displayCreatedQuizes();
+			updateStorage.put(qId, title);
+			
+			ofy().save().entity(retrieved).now();
+		}
 	}
 	
 	public SmartQuiz retrieveQuiz(String IDs) {

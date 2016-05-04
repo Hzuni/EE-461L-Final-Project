@@ -25,8 +25,8 @@ public class SmartUser {
 	}
 	public void addCreatedQuiz(String quizId,String title)
 	{
-		/*quizId is the key which is guaranteed to be unique*/
-		createdQuizIds.put(quizId,title);
+		SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
+		objectify.saveQuizzes(userId, quizId, title);
 	}
 
 
