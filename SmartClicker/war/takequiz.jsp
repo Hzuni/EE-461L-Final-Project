@@ -72,18 +72,33 @@
 				<%
 				SmartQuiz quiz = (SmartQuiz)request.getAttribute("smartQuiz");
 				
-				System.out.println("Checking Quiz: " + quiz);
+				System.out.println("/*********************************************************************************************/");
+				System.out.println("Entered takequiz");
+				System.out.println("");
+				System.out.println("");
+				
+				
+				System.out.println("takequiz Quiz: " + quiz);
 				
 				String title = quiz.getTitle();
 				ArrayList<String> IDs = quiz.getQuestionIds();
 				
-				System.out.println("Checking Take Quiz Title: " + title);
+				System.out.println("Checking Quiz Title in takequiz: " + title);
 				
+				int index = 1;
 				for(String ID : IDs) {
 					SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
-					System.out.println("Here????");
+					
 					SmartQuestion question = objectify.retrieveQuestion(ID);
-					System.out.println("Here?!!!!" + question);
+					System.out.println("takeQquiz Check: Question =" + question);
+					
+					
+					System.out.println("");
+					System.out.println("");
+					System.out.println("Exited takequiz");
+					System.out.println("/*********************************************************************************************/");
+					System.out.println("");
+					System.out.println("");
 					
 					pageContext.setAttribute("quiz_content", question.getQuestion());
 					ArrayList<String> answers = question.getAnswers();
@@ -96,15 +111,51 @@
 			    	<form action="/results" method="post" style="padding: 20px;">
 			      		<div>${fn:escapeXml(quiz_content)}</div>
 			      		<h4>Answer choices:</h4>
-			      		<div><input type="radio" name="answers" onclick="check(this.value)" value="answer1"/> : ${fn:escapeXml(quiz_answer1)}<br /></div>
-			      		<div><input type="radio" name="answers" onclick="check(this.value)" value="answer2"/> : ${fn:escapeXml(quiz_answer2)}<br /></div>
-			      		<div><input type="radio" name="answers" onclick="check(this.value)" value="answer3"/> : ${fn:escapeXml(quiz_answer3)}<br /></div>
-			      		<div><input type="radio" name="answers" onclick="check(this.value)" value="answer4"/> : ${fn:escapeXml(quiz_answer4)}<br /></div>
-			      		<div><input style="margin-top: 10px;" type="submit" class="original" value="Submit" /></div>
-			      		<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
-			      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
+			      		<%if(index == 1) {%> 
+			      			<div><input type="radio" name="answers1" onclick="check(this.value)" value="answer1"/> : ${fn:escapeXml(quiz_answer1)}<br /></div>
+			      			<div><input type="radio" name="answers1" onclick="check(this.value)" value="answer2"/> : ${fn:escapeXml(quiz_answer2)}<br /></div>
+			      			<div><input type="radio" name="answers1" onclick="check(this.value)" value="answer3"/> : ${fn:escapeXml(quiz_answer3)}<br /></div>
+			      			<div><input type="radio" name="answers1" onclick="check(this.value)" value="answer4"/> : ${fn:escapeXml(quiz_answer4)}<br /></div>
+			      			<div><input style="margin-top: 10px;" type="submit" class="original" value="Submit" /></div>
+			      			<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
+			      		<%}%>
+			      		<%if(index == 2) {%> 
+			      			<div><input type="radio" name="answers2" onclick="check(this.value)" value="answer1"/> : ${fn:escapeXml(quiz_answer1)}<br /></div>
+			      			<div><input type="radio" name="answers2" onclick="check(this.value)" value="answer2"/> : ${fn:escapeXml(quiz_answer2)}<br /></div>
+			      			<div><input type="radio" name="answers2" onclick="check(this.value)" value="answer3"/> : ${fn:escapeXml(quiz_answer3)}<br /></div>
+			      			<div><input type="radio" name="answers2" onclick="check(this.value)" value="answer4"/> : ${fn:escapeXml(quiz_answer4)}<br /></div>
+			      			<div><input style="margin-top: 10px;" type="submit" class="original" value="Submit" /></div>
+			      			<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
+			      		<%}%>
+			      		<%if(index == 3) {%> 
+			      			<div><input type="radio" name="answers3" onclick="check(this.value)" value="answer1"/> : ${fn:escapeXml(quiz_answer1)}<br /></div>
+			      			<div><input type="radio" name="answers3" onclick="check(this.value)" value="answer2"/> : ${fn:escapeXml(quiz_answer2)}<br /></div>
+			      			<div><input type="radio" name="answers3" onclick="check(this.value)" value="answer3"/> : ${fn:escapeXml(quiz_answer3)}<br /></div>
+			      			<div><input type="radio" name="answers3" onclick="check(this.value)" value="answer4"/> : ${fn:escapeXml(quiz_answer4)}<br /></div>
+			      			<div><input style="margin-top: 10px;" type="submit" class="original" value="Submit" /></div>
+			      			<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
+			      		<%}%>
+			      		<%if(index == 4) {%> 
+			      			<div><input type="radio" name="answers4" onclick="check(this.value)" value="answer1"/> : ${fn:escapeXml(quiz_answer1)}<br /></div>
+			      			<div><input type="radio" name="answers4" onclick="check(this.value)" value="answer2"/> : ${fn:escapeXml(quiz_answer2)}<br /></div>
+			      			<div><input type="radio" name="answers4" onclick="check(this.value)" value="answer3"/> : ${fn:escapeXml(quiz_answer3)}<br /></div>
+			      			<div><input type="radio" name="answers4" onclick="check(this.value)" value="answer4"/> : ${fn:escapeXml(quiz_answer4)}<br /></div>
+			      			<div><input style="margin-top: 10px;" type="submit" class="original" value="Submit" /></div>
+			      			<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
+			      		<%}%>
+			      		<%if(index == 5) {%> 
+			      			<div><input type="radio" name="answers5" onclick="check(this.value)" value="answer1"/> : ${fn:escapeXml(quiz_answer1)}<br /></div>
+			      			<div><input type="radio" name="answers5" onclick="check(this.value)" value="answer2"/> : ${fn:escapeXml(quiz_answer2)}<br /></div>
+			      			<div><input type="radio" name="answers5" onclick="check(this.value)" value="answer3"/> : ${fn:escapeXml(quiz_answer3)}<br /></div>
+			      			<div><input type="radio" name="answers5" onclick="check(this.value)" value="answer4"/> : ${fn:escapeXml(quiz_answer4)}<br /></div>
+			      			<div><input style="margin-top: 10px;" type="submit" class="original" value="Submit" /></div>
+			      			<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
+			      		<%}%>
+
+			      		
 			   	 	</form>
 			   	 	<%
+			   	 	index += 1;
 				}
 		   	 	%>
 		 	</div>

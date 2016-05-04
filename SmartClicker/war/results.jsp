@@ -71,20 +71,37 @@
 				</header>
 				<%
 				SmartQuiz quiz = (SmartQuiz)request.getAttribute("smartQuiz");
-				String Answer = (String)request.getAttribute("answer");
 				
-				System.out.println("Checking Quiz: " + quiz);
+				System.out.println("/*********************************************************************************************/");
+				System.out.println("Entered results");
+				System.out.println("");
+				System.out.println("");
+				System.out.println("Checking Quiz in results: " + quiz);
 				
 				String title = quiz.getTitle();
 				ArrayList<String> IDs = quiz.getQuestionIds();
 				
-				System.out.println("Checking Take Quiz Title: " + title);
+				System.out.println("Checking results Quiz Title: " + title);
 				
+				int index = 1;
 				for(String ID : IDs) {
+					String requestIndex = "answers" + index;
+					
+					System.out.println("Results Index Check: " + requestIndex);
+					String Answer = (String)request.getAttribute(requestIndex);
+					
 					SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
-					System.out.println("Here????");
+					
 					SmartQuestion question = objectify.retrieveQuestion(ID);
-					System.out.println("Here?!!!!" + question);
+					System.out.println("Results Answer Check: " + Answer);
+					
+					
+					System.out.println("");
+					System.out.println("");
+					System.out.println("Exited results");
+					System.out.println("/*********************************************************************************************/");
+					System.out.println("");
+					System.out.println("");
 					
 					pageContext.setAttribute("quiz_content", question.getQuestion());
 					ArrayList<String> answers = question.getAnswers();
@@ -129,6 +146,7 @@
 			      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
 			   	 	</form>
 			   	 	<%
+			   	 	index += 1;
 				}
 		   	 	%>
 		 	</div>
