@@ -15,7 +15,7 @@
 <%@ page import="smartclicker.SmartQuiz" %>
 <%@ page import="smartclicker.SmartQuestion" %>
 <%@ page import="smartclicker.SmartClickerObjectify" %>
-<%@ page import="java.util.ArrayList;" %>
+<%@ page import="java.util.ArrayList" %>
 
 <html>
   <head>
@@ -112,19 +112,26 @@
 						double out1 = (a1 / total) * 100;
 						double out2 = (a2 / total) * 100;
 						double out3 = (a3 / total) * 100;
+						
+						int iout0 = (int)out0;
+						int iout1 = (int)out1;
+						int iout2 = (int)out2;
+						int iout3 = (int)out3;
+						
+						
 						System.out.println("Value Check: out0 = " + out0 + " out1 = " + out1 + " out2 = " + out2 + " out3 = " + out3);
 						
 						System.out.println("");
 						System.out.println("");
-						System.out.println("Exited results");
+						System.out.println("Exited responses");
 						System.out.println("/*********************************************************************************************/");
 						System.out.println("");
 						System.out.println("");
 						
-						String output1 = out0 + "% Of Students Chose: " + answers.get(0);
-						String output2 = out1 + "% Of Students Chose: " + answers.get(1);
-						String output3 = out2 + "% Of Students Chose: " + answers.get(2);
-						String output4 = out3 + "% Of Students Chose: " + answers.get(3);
+						String output1 = iout0 + "% Of Students Chose: " + answers.get(0);
+						String output2 = iout1 + "% Of Students Chose: " + answers.get(1);
+						String output3 = iout2 + "% Of Students Chose: " + answers.get(2);
+						String output4 = iout3 + "% Of Students Chose: " + answers.get(3);
 						
 						
 						String outputTotal = itotal + " Students Have answered Question " + index;
