@@ -43,19 +43,19 @@ public class DisplayResultsServlet extends HttpServlet{
 			
 			if(Answer.equals("answer1")) {
 				correctIndex = 0;
-				question.addStudentResponse(correctIndex);
+				objectify.updateQuestion(ID, correctIndex);
 			}
 			else if(Answer.equals("answer2")) {
 				correctIndex = 1;
-				question.addStudentResponse(correctIndex);
+				objectify.updateQuestion(ID, correctIndex);
 			}
 			else if(Answer.equals("answer3")) {
 				correctIndex = 2;
-				question.addStudentResponse(correctIndex);
+				objectify.updateQuestion(ID, correctIndex);
 			}
 			else if(Answer.equals("answer4")) {
 				correctIndex = 3;
-				question.addStudentResponse(correctIndex);
+				objectify.updateQuestion(ID, correctIndex);
 			}
 			else {
 				

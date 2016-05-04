@@ -87,6 +87,7 @@
 				
 				System.out.println("Response Checking Take Quiz Title: " + title);
 				%><form action="home.jsp" style="padding: 20px;"> <%
+				    int index = 1;
 					for(String ID : IDs) {
 						SmartQuestion question = objectify.retrieveQuestion(ID);
 						
@@ -98,13 +99,13 @@
 						
 						pageContext.setAttribute("quizID", quiz.getQuizID());
 						
-						double a0 = responses.get(0);
-						double a1 = responses.get(1);
-						double a2 = responses.get(2);
-						double a3 = responses.get(3);						
+						double a0 = responses.get(0); int ia0 = responses.get(0);
+						double a1 = responses.get(1); int ia1 = responses.get(1);
+						double a2 = responses.get(2); int ia2 = responses.get(2);
+						double a3 = responses.get(3); int ia3 = responses.get(3);
 						System.out.println("Value Check: a0 = " + a0 + " a1 = " + a1 + " a2 = " + a2 + " a3 = " + a3);
 						
-						double total = a0 + a1 + a2 + a3;
+						double total = a0 + a1 + a2 + a3; int itotal = ia0 + ia1 + ia2 + ia3;
 						System.out.println("Total Check: Total = a1 + a2 + a3 + a4 = " + total);
 						
 						double out0 = (a0 / total) * 100; 
@@ -125,13 +126,17 @@
 						String output3 = out2 + "% Of Students Chose: " + answers.get(2);
 						String output4 = out3 + "% Of Students Chose: " + answers.get(3);
 						
+						
+						String outputTotal = itotal + " Students Have answered Question " + index;
+						
+						pageContext.setAttribute("quiz_total", outputTotal);
 						pageContext.setAttribute("quiz_responses1", output1);
 						pageContext.setAttribute("quiz_responses2", output2);
 						pageContext.setAttribute("quiz_responses3", output3);
 						pageContext.setAttribute("quiz_responses4", output4);
 						
 						%>
-							<b><u><h4>Question: </h4></u></b>
+							<div><b><u> ${fn:escapeXml(quiz_total)}</u></b></div>
 				      		<div>${fn:escapeXml(quiz_content)}</div>
 				      		<h4>Answer choices:</h4>
 				      		<div> ${fn:escapeXml(quiz_responses1)}</div>
@@ -140,7 +145,9 @@
 				      		<div> ${fn:escapeXml(quiz_responses4)}</div>
 				      		<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
 				      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
-					<%}%>
+					<%
+					index += 1;
+					}%>
 			   	 	<div><input style="margin-top: 10px;" type="submit" class="original" value="Home" /></div>
 		   	 	</form>
 		 	</div>

@@ -135,6 +135,18 @@ public class SmartClickerObjectify {
 				return null;
 		}
 	}
+	public void updateQuestion(String ID, int index) {
+		
+		if(!registered){
+			register();
+		}
+		Ref<SmartQuestion> result = ofy().load().type(SmartQuestion.class).filter("questionID", ID).first();
+		SmartQuestion retrieved = result.get();
+		if(retrieved != null) {
+			retrieved.addStudentResponse(index);
+			ofy().save().entity(retrieved).now();
+		}
+	}
 	
 	public  String addNewQuiz(SmartQuiz newQuiz)
 	{
