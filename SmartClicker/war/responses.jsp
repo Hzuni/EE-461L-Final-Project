@@ -70,6 +70,10 @@
 					<h6>Quiz:</h6>
 				</header>
 				<%
+				System.out.println("/*********************************************************************************************/");
+				System.out.println("Entered responses");
+				System.out.println("");
+				System.out.println("");
 				System.out.println("Response Check 1");
 				String identification = (String)request.getAttribute("quizId");
 				SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
@@ -84,9 +88,7 @@
 				System.out.println("Response Checking Take Quiz Title: " + title);
 				%><form action="home.jsp" style="padding: 20px;"> <%
 					for(String ID : IDs) {
-						System.out.println("Here????");
 						SmartQuestion question = objectify.retrieveQuestion(ID);
-						System.out.println("Here?!!!!" + question);
 						
 						pageContext.setAttribute("quiz_content", question.getQuestion());
 						
@@ -96,10 +98,32 @@
 						
 						pageContext.setAttribute("quizID", quiz.getQuizID());
 						
-						String output1 = responses.get(0) + "  Students Chose: " + answers.get(0);
-						String output2 = responses.get(1) + "  Students Chose: " + answers.get(1);
-						String output3 = responses.get(2) + "  Students Chose: " + answers.get(2);
-						String output4 = responses.get(3) + "  Students Chose: " + answers.get(3);
+						double a0 = responses.get(0);
+						double a1 = responses.get(1);
+						double a2 = responses.get(2);
+						double a3 = responses.get(3);						
+						System.out.println("Value Check: a0 = " + a0 + " a1 = " + a1 + " a2 = " + a2 + " a3 = " + a3);
+						
+						double total = a0 + a1 + a2 + a3;
+						System.out.println("Total Check: Total = a1 + a2 + a3 + a4 = " + total);
+						
+						double out0 = (a0 / total) * 100; 
+						double out1 = (a1 / total) * 100;
+						double out2 = (a2 / total) * 100;
+						double out3 = (a3 / total) * 100;
+						System.out.println("Value Check: out0 = " + out0 + " out1 = " + out1 + " out2 = " + out2 + " out3 = " + out3);
+						
+						System.out.println("");
+						System.out.println("");
+						System.out.println("Exited results");
+						System.out.println("/*********************************************************************************************/");
+						System.out.println("");
+						System.out.println("");
+						
+						String output1 = out0 + "% Of Students Chose: " + answers.get(0);
+						String output2 = out1 + "% Of Students Chose: " + answers.get(1);
+						String output3 = out2 + "% Of Students Chose: " + answers.get(2);
+						String output4 = out3 + "% Of Students Chose: " + answers.get(3);
 						
 						pageContext.setAttribute("quiz_responses1", output1);
 						pageContext.setAttribute("quiz_responses2", output2);
@@ -116,9 +140,7 @@
 				      		<div> ${fn:escapeXml(quiz_responses4)}</div>
 				      		<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
 				      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
-				   	 	<%
-					}
-			   	 	%>
+					<%}%>
 			   	 	<div><input style="margin-top: 10px;" type="submit" class="original" value="Home" /></div>
 		   	 	</form>
 		 	</div>
