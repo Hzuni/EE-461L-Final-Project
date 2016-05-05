@@ -49,7 +49,7 @@
 					%>
 					Welcome ${fn:escapeXml(user)} 
 					<li class="topbar">
-						<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a>
+						<a href="<%= userService.createLogoutURL("/home.jsp") %>">Sign out</a>
 					</li>
 					<%
 	    		} else {
@@ -151,6 +151,8 @@
 				      		<div> ${fn:escapeXml(quiz_responses4)}</div>
 				      		<input type="hidden" name="quizID" value="${fn:escapeXml(quizID)}"/>
 				      		<input type="hidden" name="studentAnswer" value="${fn:escapeXml(answer)}"/>
+				      		<br>
+				      		<br>
 					<%
 					index += 1;
 					}%>

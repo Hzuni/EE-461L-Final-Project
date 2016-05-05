@@ -49,7 +49,7 @@
 					%>
 					Welcome ${fn:escapeXml(user)} 
 					<li class="topbar">
-						<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a>
+						<a href="<%= userService.createLogoutURL("/home.jsp") %>">Sign out</a>
 					</li>
 					<%
 	    		} else {
@@ -82,47 +82,47 @@
 		    		<h4><b>Question 1</b></h4>		    		
 		    		<div><textarea name="question1" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		   			<div><input type="radio" name="correct1" onclick="check(this.value)" value="1" style="float:left" checked/><textarea class="title" name="answer1_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct1" onclick="check(this.value)" value="2" style="float:left"/><textarea class="title" name="answer1_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct1" onclick="check(this.value)" value="3" style="float:left"/><textarea class="title" name="answer1_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct1" onclick="check(this.value)" value="4" style="float:left"/><textarea class="title" name="answer1_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
+		   			<div><input type="radio" name="correct1" onclick="check(this.value)" value="1" style="float:left; margin-right: 4px; margin-top: 5px" checked/><textarea class="title" name="answer1_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct1" onclick="check(this.value)" value="2" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer1_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct1" onclick="check(this.value)" value="3" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer1_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct1" onclick="check(this.value)" value="4" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer1_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
 		   			
-		   			
-		   					      		<h4><b>Question 2</b></h4>
+		   			<br>
+		   			<h4><b>Question 2</b></h4>
 		      		<div><textarea name="question2" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		      		<div><input type="radio" name="correct2" onclick="check(this.value)" value="1" style="float:left" checked/><textarea class="title" name="answer2_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct2" onclick="check(this.value)" value="2" style="float:left"/><textarea class="title" name="answer2_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct2" onclick="check(this.value)" value="3" style="float:left"/><textarea class="title" name="answer2_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct2" onclick="check(this.value)" value="4" style="float:left"/><textarea class="title" name="answer2_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct2" onclick="check(this.value)" value="1" style="float:left; margin-right: 4px; margin-top: 5px" checked/><textarea class="title" name="answer2_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct2" onclick="check(this.value)" value="2" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer2_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct2" onclick="check(this.value)" value="3" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer2_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct2" onclick="check(this.value)" value="4" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer2_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
 		   			
-		      		
+		      		<br>
 		      		<h4><b>Question 3</b></h4>
 		      		<div><textarea name="question3" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		      		<div><input type="radio" name="correct3" onclick="check(this.value)" value="1" style="float:left" checked/><textarea class="title" name="answer3_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct3" onclick="check(this.value)" value="2" style="float:left"/><textarea class="title" name="answer3_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct3" onclick="check(this.value)" value="3" style="float:left"/><textarea class="title" name="answer3_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct3" onclick="check(this.value)" value="4" style="float:left"/><textarea class="title" name="answer3_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct3" onclick="check(this.value)" value="1" style="float:left; margin-right: 4px; margin-top: 5px" checked/><textarea class="title" name="answer3_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct3" onclick="check(this.value)" value="2" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer3_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct3" onclick="check(this.value)" value="3" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer3_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct3" onclick="check(this.value)" value="4" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer3_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
 		   			
-		      		
+		      		<br>
 		      		<h4><b>Question 4</b></h4>
 		      		<div><textarea name="question4" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		      		<div><input type="radio" name="correct4" onclick="check(this.value)" value="1" style="float:left" checked/><textarea class="title" name="answer4_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct4" onclick="check(this.value)" value="2" style="float:left"/><textarea class="title" name="answer4_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct4" onclick="check(this.value)" value="3" style="float:left"/><textarea class="title" name="answer4_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct4" onclick="check(this.value)" value="4" style="float:left"/><textarea class="title" name="answer4_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct4" onclick="check(this.value)" value="1" style="float:left; margin-right: 4px; margin-top: 5px" checked/><textarea class="title" name="answer4_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct4" onclick="check(this.value)" value="2" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer4_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct4" onclick="check(this.value)" value="3" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer4_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct4" onclick="check(this.value)" value="4" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer4_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
 		   			
-		      		
+		      		<br>
 		      		<h4><b>Question 5</b> </h4>
 		      		<div><textarea name="question5" rows="3" cols="60" placeholder="Type your question here"></textarea></div>
 		      		<h4>Set answer choices:</h4>
-		      		<div><input type="radio" name="correct5" onclick="check(this.value)" value="1" style="float:left" checked/><textarea class="title" name="answer5_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct5" onclick="check(this.value)" value="2" style="float:left"/><textarea class="title" name="answer5_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct5" onclick="check(this.value)" value="3" style="float:left"/><textarea class="title" name="answer5_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
-		      		<div><input type="radio" name="correct5" onclick="check(this.value)" value="4" style="float:left"/><textarea class="title" name="answer5_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
-		   			
+		      		<div><input type="radio" name="correct5" onclick="check(this.value)" value="1" style="float:left; margin-right: 4px; margin-top: 5px" checked/><textarea class="title" name="answer5_1" rows="1" cols="60" placeholder="Input Choice 1" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct5" onclick="check(this.value)" value="2" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer5_2" rows="1" cols="60" placeholder="Input Choice 2" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct5" onclick="check(this.value)" value="3" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer5_3" rows="1" cols="60" placeholder="Input Choice 3" style="width : 500px;"></textarea></div>
+		      		<div><input type="radio" name="correct5" onclick="check(this.value)" value="4" style="float:left; margin-right: 4px; margin-top: 5px"/><textarea class="title" name="answer5_4" rows="1" cols="60" placeholder="Input Choice 4" style="width : 500px;"></textarea></div>
+		   			<br>
 		      		End of the Question Set!
 		      		
 		      		
