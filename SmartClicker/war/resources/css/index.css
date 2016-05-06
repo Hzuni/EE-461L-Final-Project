@@ -76,7 +76,7 @@ textarea {
 }
 
 textarea.title {
-	width: 100%;
+	width: 100%;u
 	height: 26px;
 	margin-bottom: 20px;
 	resize: none;
@@ -149,3 +149,4 @@ ul#navlist li p {
 div#tquizlist {
 	width: 90%;
 }
+
