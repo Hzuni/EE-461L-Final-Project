@@ -94,75 +94,93 @@
 	if (user != null) {
 	%>
 
-	<div id="page-wrap">
 		<h1>Welcome to Smart Clicker!</h1>
-		<div style="padding-bottom: 20px;">
-			<div class="w3-card-4	w3-row"
-				style="width: 100%; padding-bottom: 0px; margin-bottom: 10px;">
-				<header class="w3-container w3-orange">
-					<h3>My Created Quizes</h3>
-				</header>
-				<div class="w3-threequarter w3-white" style="padding: 20px;">
-					<div id="quizlist">
-						<div id="textbox">
-							<p class="alignleft">
-								<b>Your Created Quizes</b>
-							</p>
-							<p class="alignright">
-								<b>Quiz Id</b>
-							</p>
-						</div>
-						<div style="clear: both;"></div>
+		<div class = "container">
+			<div class="card container" style = "  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);padding-bottom:30px;">
+				
+				
+				<div class="card-header" style="background-color: #ff9800 !important; ">
+					
+					<h3>My Created Quizes<h3>
+				
+				</div>				
+				
+				<div class = "row">
+				<%
+					HashMap<String, String> createdQuizes = loggedInUser.displayCreatedQuizes();
+					System.out.println(createdQuizes);
+					Set<String> idSet = createdQuizes.keySet();
+				%>
+				
+				<div class = col-xs-8>	
+				<div class ="row">
+				<div class = "col-xs-6">
+					<p > <b>Quiz Titles</b></p>
+					<form action=/results method="get">	
+						<input type="hidden" value="${fn:escapeXml(quizTitle)}" />
+				
 						<%
-							HashMap<String, String> createdQuizes = loggedInUser
-										.displayCreatedQuizes();
-								System.out.println(createdQuizes);
-								Set<String> idSet = createdQuizes.keySet();
-
-								for (String id : idSet) {
-									pageContext.setAttribute("quizId", id);
-									pageContext
-											.setAttribute("quizTitle", createdQuizes.get(id));
+						for (String id : idSet) {
+							pageContext.setAttribute("quizTitle", createdQuizes.get(id));
+					
 						%>
-						<div id="textbox">
-							<%--  								<p class="alignleft"><a href="responses.jsp">${quizTitle}</a></p> --%>
-							<form action=/results method="get"
-								style="margin-left: 0px; margin-top: 0px;">
-								<input type="hidden" name="quizID"
-									value="${fn:escapeXml(quizId)}" />
-								<div>
-									<input
-										style="text-align: left; background-color: transparent; text-decoration: underline; border: none; margin-top: 0px; margin-right: 5px; width: 800px;"
-										type="submit" class="alignleft"
-										value="${fn:escapeXml(quizTitle)}" />
-								</div>
-							</form>
-							<p class="alignright">${quizId}</p>
-						</div>
-						<div style="clear: both;"></div>
-
+				
+						<p >${quizTitle}</p>
+				
+						
 						<%
-							}
+						}
+						%>			
+					
+					</form>
+				
+				</div>	
+								
+				
+				<div class = "col-xs-6">
+					<p > <b>Quiz Ids</b></p>										
+					<form action=/results method="get">
+						<%
+						for (String id : idSet) {
+							pageContext.setAttribute("quizId", id);
+					
 						%>
-					</div>
+				
+						<input type="hidden"  value="${fn:escapeXml(quizId)}" />
+						<p >${quizId}</p>
+						<%
+						}
+						%>
+					
+					</form>
+					
 				</div>
-
-				<div class="w3-quarter">
-					<form action=/teacher method="post"
-						style="margin-left: 25%; margin-top: 75%;">
-						<div>
-							<input style="margin-top: 10px; margin-right: 5px; width: 130px;"
+				</div>			
+				</div>
+				
+				<div class="col-sm-4 ">
+					<div class = "container">
+					<form action=/teacher method="post">
+						<div class = "container">
+							<input width: 10%;"
 								type="submit" class="original" value="Create Quiz" />
 						</div>
 					</form>
-
+					</div>
 				</div>
+				</div>
+				
 			</div>
-			<div class="w3-card-4"
-				style="width: 100%; padding-bottom: 0px; margin-bottom: 10px;">
-				<header class="w3-container w3-orange">
-					<h3>Take a Quiz</h3>
-				</header>
+			
+			<div class="card container" style = "box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); padding-top:30px;">
+				
+				<div class="card-header" style="background-color: #ff9800 !important; ">
+					
+					<h3>Take a Quiz<h3>
+				
+				</div>
+				
+				
 				<div class="w3-container">
 					<form action=/student method="get" style="padding: 20px;">
 						<div class="w3-threequarter">
