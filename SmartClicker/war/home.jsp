@@ -93,7 +93,6 @@
 	<%
 	if (user != null) {
 	%>
-
 		<h1>Welcome to Smart Clicker!</h1>
 		<div class = "container">
 			<div class="card container" style = "  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);padding-bottom:30px;">
@@ -101,73 +100,59 @@
 				
 				<div class="card-header" style="background-color: #ff9800 !important; ">
 					
-					<h3>My Created Quizes<h3>
+				<h3>My Created Quizes<h3>
 				
 				</div>				
 				
 				<div class = "row">
-				<%
-					HashMap<String, String> createdQuizes = loggedInUser.displayCreatedQuizes();
-					System.out.println(createdQuizes);
-					Set<String> idSet = createdQuizes.keySet();
-				%>
+					<%
+						HashMap<String, String> createdQuizes = loggedInUser.displayCreatedQuizes();
+						System.out.println(createdQuizes);
+						Set<String> idSet = createdQuizes.keySet();
+					%>
 				
-				<div class = col-xs-8>	
-				<div class ="row">
-				<div class = "col-xs-6">
-					<p > <b>Quiz Titles</b></p>
-					<form action=/results method="get">	
-						<input type="hidden" value="${fn:escapeXml(quizTitle)}" />
-				
-						<%
-						for (String id : idSet) {
-							pageContext.setAttribute("quizTitle", createdQuizes.get(id));
+						<div class = col-xs-8>	
+							<div class ="row">
+								<div class = "col-xs-6">
+									<p > <b>Quiz Titles</b></p>
+									<form action=/results method="get">	
+										<input type="hidden" value="${fn:escapeXml(quizTitle)}" />
+										<%
+											for (String id : idSet) {
+												pageContext.setAttribute("quizTitle", createdQuizes.get(id));								
+										%>							
+										<p >${quizTitle}</p>
+																	
+										<%
+										}
+										%>								
+									</form>
+								</div>	
+								<div class = "col-xs-6">
+									<p > <b>Quiz Ids</b></p>										
+										<form action=/results method="get">
+										<%
+											for (String id : idSet) {
+												pageContext.setAttribute("quizId", id);
 					
-						%>
-				
-						<p >${quizTitle}</p>
-				
-						
-						<%
-						}
-						%>			
+										%>	
+									<input type="hidden"  value="${fn:escapeXml(quizId)}" />
+									<p >${quizId}</p>
+										<%
+											}
+										%>
 					
-					</form>
-				
-				</div>	
-								
-				
-				<div class = "col-xs-6">
-					<p > <b>Quiz Ids</b></p>										
-					<form action=/results method="get">
-						<%
-						for (String id : idSet) {
-							pageContext.setAttribute("quizId", id);
-					
-						%>
-				
-						<input type="hidden"  value="${fn:escapeXml(quizId)}" />
-						<p >${quizId}</p>
-						<%
-						}
-						%>
-					
-					</form>
-					
-				</div>
-				</div>			
-				</div>
-				
-				<div class="col-sm-4 ">
-					<div class = "container">
-					<form action=/teacher method="post">
-						<div class = "container">
-							<input width: 10%;"
-								type="submit" class="original" value="Create Quiz" />
+										</form>
+								</div>		
+							</div>			
 						</div>
-					</form>
+					<div class="col-sm-4 ">
+						<div class = "container">
+						<form action=/teacher method="post">
+								<input style=" width: 130px;" type="submit" class="original" value="Create Quiz" />							
+						</form>
+						</div>
 					</div>
-				</div>
 				</div>
 				
 			</div>
@@ -179,27 +164,23 @@
 					<h3>Take a Quiz<h3>
 				
 				</div>
-				
-				
-				<div class="w3-container">
-					<form action=/student method="get" style="padding: 20px;">
-						<div class="w3-threequarter">
+				<div class="container">
+					<form action=/student method="get" >
+						<div class = "row">	
+							<div class="col-xs-8">
 							<h3>Enter A Quiz ID</h3>
 							<input
 								style="margin-top: 0px; margin-left: 10px; width: 130px; float: left"
-								class="title" name="inputID" rows="1" cols="10"
-								placeholder="Quiz ID"> </input>
-						</div>
-						<div class="w3-quarter">
-							<div
-								style="margin-left: 34%; margin-top: 20%; padding-bottom: 13px;">
-								<input
-									style="margin-top: 10px; margin-right: 5px; width: 130px; margin-bottom: 6px;"
-									type="submit" class="original" value="Take Quiz" />
+								class="title" name="inputID" "
+								placeholder="Quiz ID">
+								<p>  </p>
+							</div>
+							<div class="col-sm-4">								
+								<input style=" width: 130px;" type="submit" class="original" value="Take Quiz" />
 							</div>
 						</div>
 					</form>
-
+				</div>
 				</div>
 			</div>
 		</div>
