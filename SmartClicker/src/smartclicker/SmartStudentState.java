@@ -1,6 +1,7 @@
 package smartclicker;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class SmartStudentState extends HttpServlet implements SmartUserState{
+    Logger logger = Logger.getLogger("MyLogger"); 	
+	
 	void takeQuiz(String classId){
 		
 	}
@@ -21,26 +24,26 @@ public class SmartStudentState extends HttpServlet implements SmartUserState{
 		String QuizID = req.getParameter("inputID").trim();
 		
 		if(QuizID.equals(null) || QuizID.equals("")) {
-			System.out.println("Checking NLL: " + QuizID);
+			logger.info("Checking NLL: " + QuizID);
 			resp.sendRedirect("/home.jsp");
 		}
 		else {
-			System.out.println("Checking: " + QuizID);
+			logger.info("Checking: " + QuizID);
 			
 			SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
 			SmartQuiz studentQuiz = objectify.retrieveQuiz(QuizID);
 			
 			if(studentQuiz == null) {
-				System.out.println("Take Quiz null check: " + QuizID);
+				logger.info("Take Quiz null check: " + QuizID);
 			
 				resp.sendRedirect("/home.jsp");
 			}
 			else {
-				System.out.println("Take Quiz non-null check: " + QuizID);
+				logger.info("Take Quiz non-null check: " + QuizID);
 				req.setAttribute("smartQuiz", studentQuiz);
 			}
 			try {
-				System.out.println("Redirect to takeQuiz: " + QuizID);
+				logger.info("Redirect to takeQuiz: " + QuizID);
 				req.getRequestDispatcher("/takequiz.jsp").forward(req, resp);
 			} catch (ServletException e) {
 				resp.sendRedirect("/home.jsp");

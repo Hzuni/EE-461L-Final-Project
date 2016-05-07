@@ -14,7 +14,7 @@
 <%@ page import="smartclicker.SmartClickerObjectify"%>
 <%@ page import="java.util.HashMap"%>
 <%@ page import="java.util.Set"%>
-
+<%@ page import="java.util.logging.Logger"%>
 
 <html>
 <head>
@@ -37,6 +37,7 @@
 
 </head>
 <%
+	Logger logger = Logger.getLogger("MyLogger"); 
 	UserService userService = UserServiceFactory.getUserService();
 	User user = userService.getCurrentUser();
 
@@ -106,8 +107,9 @@
 				<div class = "row">
 					<%
 						HashMap<String, String> createdQuizes = loggedInUser.displayCreatedQuizes();
-						System.out.println(createdQuizes);
-						Set<String> idSet = createdQuizes.keySet();
+							logger.info(createdQuizes.toString());
+
+							Set<String> idSet = createdQuizes.keySet();
 					%>
 				
 						<div class = col-xs-8>	

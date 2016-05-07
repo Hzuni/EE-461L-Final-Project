@@ -16,6 +16,8 @@
 <%@ page import="smartclicker.SmartQuestion" %>
 <%@ page import="smartclicker.SmartClickerObjectify" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.logging.Logger"%>
+
 
 <html>
   <head>
@@ -29,6 +31,7 @@
 	</script>  
   </head>
   <%
+  Logger logger = Logger.getLogger("MyLogger"); 
   String userName = request.getParameter("userName");
     if (userName == null) {
     	userName = "default";
@@ -70,22 +73,22 @@
 					<h6>Quiz:</h6>
 				</header>
 				<%
-				System.out.println("/*********************************************************************************************/");
-				System.out.println("Entered responses");
-				System.out.println("");
-				System.out.println("");
-				System.out.println("Response Check 1");
+				logger.info("/*********************************************************************************************/");
+				logger.info("Entered responses");
+				logger.info("");
+				logger.info("");
+				logger.info("Response Check 1");
 				String identification = (String)request.getAttribute("quizId");
 				SmartClickerObjectify objectify = SmartClickerObjectify.getInstance();
-				System.out.println("Response Check 2: " + identification);
+				logger.info("Response Check 2: " + identification);
 				SmartQuiz quiz = objectify.retrieveQuiz(identification);
 				
-				System.out.println("Response Checking Quiz: " + quiz);
+				logger.info("Response Checking Quiz: " + quiz);
 				
 				String title = quiz.getTitle();
 				ArrayList<String> IDs = quiz.getQuestionIds();
 				
-				System.out.println("Response Checking Take Quiz Title: " + title);
+				logger.info("Response Checking Take Quiz Title: " + title);
 				%><form action="home.jsp" style="padding: 20px;"> <%
 				    int index = 1;
 					for(String ID : IDs) {
@@ -103,10 +106,10 @@
 						double a1 = responses.get(1); int ia1 = responses.get(1);
 						double a2 = responses.get(2); int ia2 = responses.get(2);
 						double a3 = responses.get(3); int ia3 = responses.get(3);
-						System.out.println("Value Check: a0 = " + a0 + " a1 = " + a1 + " a2 = " + a2 + " a3 = " + a3);
+						logger.info("Value Check: a0 = " + a0 + " a1 = " + a1 + " a2 = " + a2 + " a3 = " + a3);
 						
 						double total = a0 + a1 + a2 + a3; int itotal = ia0 + ia1 + ia2 + ia3;
-						System.out.println("Total Check: Total = a1 + a2 + a3 + a4 = " + total);
+						logger.info("Total Check: Total = a1 + a2 + a3 + a4 = " + total);
 						
 						double out0 = (a0 / total) * 100; 
 						double out1 = (a1 / total) * 100;
@@ -118,7 +121,7 @@
 						int iout2 = (int)out2;
 						int iout3 = (int)out3;
 											
-						System.out.println("Value Check: out0 = " + out0 + " out1 = " + out1 + " out2 = " + out2 + " out3 = " + out3);
+						logger.info("Value Check: out0 = " + out0 + " out1 = " + out1 + " out2 = " + out2 + " out3 = " + out3);
 						
 						String output1 = iout0 + "% Of Students Chose: " + answers.get(0);
 						String output2 = iout1 + "% Of Students Chose: " + answers.get(1);
@@ -126,12 +129,12 @@
 						String output4 = iout3 + "% Of Students Chose: " + answers.get(3);
 						
 						
-						System.out.println("");
-						System.out.println("");
-						System.out.println("Exited responses");
-						System.out.println("/*********************************************************************************************/");
-						System.out.println("");
-						System.out.println("");
+						logger.info("");
+						logger.info("");
+						logger.info("Exited responses");
+						logger.info("/*********************************************************************************************/");
+						logger.info("");
+						logger.info("");
 						
 						String outputTotal = itotal + " Students Have answered Question " + index;
 						

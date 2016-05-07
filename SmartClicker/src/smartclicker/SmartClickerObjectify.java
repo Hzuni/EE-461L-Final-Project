@@ -1,18 +1,17 @@
 package smartclicker;
 import static com.googlecode.objectify.ObjectifyService.ofy;
-
 import java.security.SecureRandom;
 import java.util.HashMap;
-
+import java.util.logging.Logger;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.Ref;
 
+
 public class SmartClickerObjectify {
 	private  boolean registered =false;	
-    private static SmartClickerObjectify instance = new SmartClickerObjectify();
-    
+    private static SmartClickerObjectify instance = new SmartClickerObjectify();    
     static final String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	
+    Logger logger = Logger.getLogger("MyLogger"); 
     
     private SmartClickerObjectify()
     {
@@ -45,15 +44,14 @@ public class SmartClickerObjectify {
 		SmartUser retrieved = result.get();		
 		if(retrieved != null)
 		{
-			System.out.println("We have a returning user");
-			
+			logger.info("We have a returning user");
 			return retrieved;
 		}
 		else
 		{
 			SmartUser newUser = new SmartUser(googleId);
 			ofy().save().entity(newUser).now();
-			System.out.println("New User Just added to the Objectify");
+			logger.info("New User Just added to the Objectify");
 			return newUser;
 		}
 		
@@ -71,8 +69,8 @@ public class SmartClickerObjectify {
 		SmartUser retrieved = result.get();		
 		if(retrieved != null)
 		{
-			System.out.println("We have a returning user");
 			
+			logger.info("We hav a returning user");
 			HashMap<String,String> updateStorage = retrieved.displayCreatedQuizes();
 			updateStorage.put(qId, title);
 			
@@ -82,20 +80,14 @@ public class SmartClickerObjectify {
 	
 	public SmartQuiz retrieveQuiz(String IDs) {
 		
-		System.out.println("ID Loading: " + IDs);
+		logger.info("ID Loading: " + IDs);
 		if(!registered){
 			register();
 		}
 		Ref<SmartQuiz> result = ofy().load().type(SmartQuiz.class).filter("quizID",IDs).first();
-		System.out.println("Loading Quiz 1: " + result);
+		logger.info("Loading Quiz 1: " + result);
 		SmartQuiz retrieved = result.get();
-		System.out.print("HERE!");
-		/*if(retrieved.equals(null))
-		{
-			System.out.println("Retrieved is NULL!!!");
-		//System.out.println("Loading Quiz: " + retrieved);
-		}*/
-		System.out.println("What is retrieved: " + retrieved);
+		logger.info("What is retrieved: " + retrieved);
 		return retrieved;
 	}
 	public String addNewQuestion(SmartQuestion newQuestion)
@@ -116,8 +108,8 @@ public class SmartClickerObjectify {
 		}
 		newQuestion.setQuestionID(generatedQuizId);
 		ofy().save().entity(newQuestion).now();
-		System.out.print("New Question Added \t");
-		System.out.println(generatedQuizId);
+		logger.info("New Question Added \t");
+		logger.info(generatedQuizId);
 		return generatedQuizId;
 	}
 	
@@ -163,8 +155,8 @@ public class SmartClickerObjectify {
 		}
 		newQuiz.setQuizID(generatedQuizId);
 		ofy().save().entity(newQuiz).now();
-		System.out.print("New Quiz Added \t");
-		System.out.println(generatedQuizId);
+		logger.info("New Quiz Added \t");
+		logger.info(generatedQuizId);
 		return generatedQuizId;
 	
 	}
