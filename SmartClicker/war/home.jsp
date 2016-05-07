@@ -94,8 +94,7 @@
 	if (user != null) {
 	%>
 		<h1>Welcome to Smart Clicker!</h1>
-		<div class = "container">
-			<div class="card container" style = "  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);padding-bottom:30px;">
+			<div class="card container" style = "  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);margin-bottom:10px;">
 				
 				
 				<div class="card-header" style="background-color: #ff9800 !important; ">
@@ -155,7 +154,7 @@
 					<div class="col-sm-4 ">
 						<div class = "container">
 						<form action=/teacher method="post">
-								<input style=" width: 130px;" type="submit" class="original" value="Create Quiz" />							
+								<input style=" width: 120px;" type="submit" class="original" value="Create Quiz" />							
 						</form>
 						</div>
 					</div>
@@ -176,21 +175,20 @@
 							<div class="col-xs-8">
 							<h3>Enter A Quiz ID</h3>
 							<input
-								style="margin-top: 0px; margin-left: 10px; width: 130px; float: left"
+								style="margin-top: 0px; margin-left: 10px; width: 120px; float: left"
 								class="title" name="inputID" "
 								placeholder="Quiz ID">
 								
 							</div>
 							<div class="col-sm-4">								
-								<input style=" width: 130px;" type="submit" class="original" value="Take Quiz" />
+								<input style=" width: 120px; margin-top: 20px;" type="submit" class="original" value="Take Quiz" />
 							</div>
 						</div>
 					</form>
 				</div>
 				</div>
-			</div>
-		</div>
-	</div>
+			
+		
 </body>
 <%
 	} else {

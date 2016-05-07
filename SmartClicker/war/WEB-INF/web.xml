@@ -23,14 +23,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     </servlet-mapping>
     
     <servlet>
-        <servlet-name>Register</servlet-name>
-        <servlet-class>smartclicker.RegisterId</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>RegisterID</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>Student</servlet-name>
         <servlet-class>smartclicker.SmartStudentState</servlet-class>
     </servlet>
