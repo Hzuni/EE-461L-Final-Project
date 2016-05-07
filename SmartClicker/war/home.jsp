@@ -114,19 +114,25 @@
 						<div class = col-xs-8>	
 							<div class ="row">
 								<div class = "col-xs-6">
-									<p > <b>Quiz Titles</b></p>
-									<form action=/results method="get">	
-										<input type="hidden" value="${fn:escapeXml(quizTitle)}" />
+									<p ><b>Quiz Titles</b></p>
 										<%
 											for (String id : idSet) {
 												pageContext.setAttribute("quizTitle", createdQuizes.get(id));								
 										%>							
-										<p >${quizTitle}</p>
-																	
+									 
+										<form action=/results method="get">
+											<input type="hidden" name="quizID" value="${fn:escapeXml(quizId)}" />
+											<input
+												style="text-align left; background-color: transparent; text-decoration: underline; border: none;"
+												type="submit" value="${fn:escapeXml(quizTitle)}" />
+										
+										</form>
+										<p>${quizId}</p>																					
+										
 										<%
 										}
 										%>								
-									</form>
+									
 								</div>	
 								<div class = "col-xs-6">
 									<p > <b>Quiz Ids</b></p>										
@@ -173,7 +179,7 @@
 								style="margin-top: 0px; margin-left: 10px; width: 130px; float: left"
 								class="title" name="inputID" "
 								placeholder="Quiz ID">
-								<p>  </p>
+								
 							</div>
 							<div class="col-sm-4">								
 								<input style=" width: 130px;" type="submit" class="original" value="Take Quiz" />
