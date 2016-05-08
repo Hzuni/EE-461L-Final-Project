@@ -73,7 +73,11 @@
 					%><p style = "color:#ffffff" > Welcome ${fn:escapeXml(user)}</p>
 					</li>
 					
-					<li><a href="#">Register Id</a></li>
+					<li>
+						<form action=/register method="post">
+								<input style=" width: 120px;" type="submit" class="original" value="RegisterId" />							
+						</form>						
+					</li>
 					
 					<li><a href="<%=userService.createLogoutURL(request.getRequestURI())%>"><span class="glyphicon glyphicon-user"></span>Sign out</a></li>
 					<%

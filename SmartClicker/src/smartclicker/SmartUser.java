@@ -8,7 +8,14 @@ import com.googlecode.objectify.annotation.Id;
 @Entity
 public class SmartUser {
 	@Id private String userId;
+	private String classId;
 	
+	public String getClassId() {
+		return classId;
+	}
+	public void setClassId(String classId) {
+		this.classId = classId;
+	}
 	private HashMap<String,String> createdQuizIds; 
 	
 	public HashMap<String, String> displayCreatedQuizes() {

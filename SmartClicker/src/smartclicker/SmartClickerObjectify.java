@@ -57,6 +57,27 @@ public class SmartClickerObjectify {
 		
 	}
 	
+	public void registerUser(String googleId,String classId)
+	{		
+		/*By the google generated Id determines weather user has used our service before 
+		 and will retrieve their information if they have*/
+		
+		if(!registered){
+			register();
+		}
+		Ref<SmartUser> result = ofy().load().type(SmartUser.class).filter("userId",googleId).first();
+		SmartUser retrieved = result.get();		
+		if(retrieved != null)
+		{
+			logger.info("Setting class indetifier of " + googleId + "\t to \t" + classId);
+			retrieved.setClassId(classId);
+			ofy().save().entity(retrieved).now();
+		}
+	
+	}
+	
+	
+	
 	public void saveQuizzes(String googleId, String qId, String title)
 	{		
 		/*By the google generated Id determines weather user has used our service before 

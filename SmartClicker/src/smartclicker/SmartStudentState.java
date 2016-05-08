@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class SmartStudentState extends HttpServlet implements SmartUserState{
-    Logger logger = Logger.getLogger("MyLogger"); 	
+    Logger logger = Logger.getLogger("MyLogger"); 
+
+	
 	
 	void takeQuiz(String classId){
 		
