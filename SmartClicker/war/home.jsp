@@ -123,6 +123,8 @@
 										<%
 											for (String id : idSet) {
 												pageContext.setAttribute("quizTitle", createdQuizes.get(id));								
+                                                pageContext.setAttribute("quizId", id);
+                                               
 										%>							
 									 
 										<form action=/results method="get">
@@ -132,7 +134,7 @@
 												type="submit" value="${fn:escapeXml(quizTitle)}" />
 										
 										</form>
-										<p>${quizId}</p>																					
+																															
 										
 										<%
 										}
